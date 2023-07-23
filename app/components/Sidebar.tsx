@@ -3,11 +3,12 @@
 import { useState } from "react";
 import { GiBroadsword } from "react-icons/gi";
 import { RiSkullLine } from "react-icons/ri";
+import { FaTrophy } from "react-icons/Fa";
 
 export default function Sidebar() {
 	const [isExpanded, setIsExpanded] = useState(false);
 
-	const iconClasses = "text-white h-10 w-10 m-5 flex-shrink-0";
+	const iconClasses = "text-sideItem h-6 w-6 ml-7 my-4 flex-shrink-0";
 	const menuItems = [
 		{
 			title: "Items",
@@ -16,6 +17,10 @@ export default function Sidebar() {
 		{
 			title: "Champions",
 			icon: <RiSkullLine className={iconClasses} />,
+		},
+		{
+			title: "Leaderboard",
+			icon: <FaTrophy className={iconClasses} />,
 		},
 	];
 
@@ -31,19 +36,20 @@ export default function Sidebar() {
 		<div
 			onMouseEnter={onMouseEnter}
 			onMouseLeave={onMouseLeave}
-			className={`h-full relative hidden md:flex md:flex-col md:fixed transition-all duration-500 bg-gray-900 ${
+			className={`h-full relative hidden md:flex md:flex-col md:fixed transition-all duration-300 bg-side ${
 				isExpanded ? "hover:w-60 z-0" : "md:w-20"
 			}`}
 		>
 			<div className="flex items-center">
 				<img className="h-10 w-10 m-5" src="/icon.png" alt="" />
 			</div>
+			<div className="h-px mx-3 my-0 bg-divider"></div>
 			<ul>
 				{menuItems.map((item) => (
-					<li key={item.title} className="flex items-center">
+					<li key={item.title} className="flex items-center hover:bg-nav my-3 ">
 						{item.icon}
 						<span
-							className={`text-white text-xl ml-2 duration-500 ${
+							className={`text-sideItem text-base font-bold ml-5 duration-300 ${
 								!isExpanded && "opacity-0"
 							}`}
 						>
