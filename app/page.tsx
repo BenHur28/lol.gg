@@ -1,3 +1,9 @@
+import Searchbar from "./components/Searchbar";
+
 export default function Home() {
-	return <h1 className="text-3xl"></h1>;
+	return (
+		<div>
+			<Searchbar />
+		</div>
+	);
 }
