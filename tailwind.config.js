@@ -13,6 +13,9 @@ module.exports = {
 				sideItem: "#5C5C8E",
 				border: "#0d0d28",
 				divider: "#191937",
+				champBG: "#17172E",
+				champBorder: "#2C2C40",
+				champH2: "#CDDCFE",
 			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
