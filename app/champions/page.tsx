@@ -1,6 +1,13 @@
 import getChampionsData from "@/services/getChampions";
 import Link from "next/link";
 
+export async function generateMetadata() {
+	return {
+		title: "Champions list",
+		description: "Browse all champions.",
+	};
+}
+
 export default async function ChampionsPage() {
 	const championData = getChampionsData();
 	const res = await championData;
@@ -11,9 +18,9 @@ export default async function ChampionsPage() {
 	return (
 		<div className="flex flex-col items-center">
 			<div>
-				<div>
+				<div className="my-10">
 					<h1 className="text-white text-4xl font-bold mb-2">Champions List</h1>
-					<h2 className="text-champH2 text-xl font-bold mb-10">
+					<h2 className="text-champH2 text-xl font-bold">
 						Discover best builds for every champion
 					</h2>
 				</div>
@@ -22,11 +29,11 @@ export default async function ChampionsPage() {
 						{champs.map((champ) => (
 							<li key={champ.id}>
 								<Link
-									href={`/champions/${champ.name.toLowerCase()}`}
+									href={`/champions/${champ.name}`}
 									className="flex flex-col"
 								>
 									<img
-										className="h-24 w-24"
+										className="h-24 w-24 border border-champBorder"
 										src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${champ.image.full}`}
 										alt=""
 									/>
