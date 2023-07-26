@@ -1,5 +1,6 @@
 import getChampionsData from "@/services/getChampions";
 import Link from "next/link";
+import Image from "next/image";
 
 export async function generateMetadata() {
 	return {
@@ -32,11 +33,13 @@ export default async function ChampionsPage() {
 									href={`/champions/${champ.name}`}
 									className="flex flex-col"
 								>
-									<img
-										className="h-24 w-24 border border-champBorder"
+									<Image
+										className="border border-champBorder"
+										height={96}
+										width={96}
 										src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${champ.image.full}`}
 										alt=""
-									/>
+									></Image>
 									<span className="text-white text-sm mt-2">{champ.name}</span>
 								</Link>
 							</li>

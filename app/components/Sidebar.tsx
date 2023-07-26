@@ -5,6 +5,7 @@ import { GiBroadsword } from "react-icons/gi";
 import { RiSkullLine } from "react-icons/ri";
 import { FaTrophy } from "react-icons/Fa";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Sidebar() {
 	const [isExpanded, setIsExpanded] = useState(false);
@@ -43,7 +44,13 @@ export default function Sidebar() {
 		>
 			<div className="flex items-center">
 				<Link href="/">
-					<img className="h-10 w-10 m-5" src="/icon.png" alt="" />
+					<Image
+						className="m-5"
+						width={40}
+						height={40}
+						src="/icon.png"
+						alt=""
+					></Image>
 				</Link>
 			</div>
 			<div className="h-px mx-3 my-0 bg-divider"></div>

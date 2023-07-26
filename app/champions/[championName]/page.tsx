@@ -1,4 +1,5 @@
 import getChampionData from "@/services/getChampion";
+import Image from "next/image";
 
 type Props = {
 	params: {
@@ -19,9 +20,11 @@ export default async function ChampionPage({
 	const championData = getChampionData(championName);
 	const res = await championData;
 	return (
-		<div className="text-white text-center">
+		<div className="text-white text-center flex flex-col items-center">
 			<h1>{res.data[championName].id}</h1>
-			<img
+			<Image
+				height={96}
+				width={86}
 				src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${res.data[championName].image.full}`}
 				alt=""
 			/>
