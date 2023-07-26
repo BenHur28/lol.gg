@@ -1,5 +1,12 @@
 import getItemsData from "@/services/getItems";
 
+export async function generateMetadata() {
+	return {
+		title: "Items list",
+		description: "Browse all items.",
+	};
+}
+
 export default async function ItemsPage() {
 	const itemData = getItemsData();
 	const res = await itemData;
@@ -9,7 +16,6 @@ export default async function ItemsPage() {
 			items.push(res.data[item]);
 		}
 	}
-	console.log;
 	return (
 		<div className="flex flex-col items-center text-white text-center">
 			<ul>

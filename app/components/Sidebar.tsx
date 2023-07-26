@@ -49,15 +49,20 @@ export default function Sidebar() {
 			<div className="h-px mx-3 my-0 bg-divider"></div>
 			<ul>
 				{menuItems.map((item) => (
-					<li key={item.title} className="flex items-center hover:bg-nav my-3 ">
-						{item.icon}
-						<span
-							className={`text-sideItem text-base font-bold ml-5 duration-300 ${
-								!isExpanded && "opacity-0"
-							}`}
+					<li key={item.title} className=" hover:bg-nav my-3 ">
+						<Link
+							className="flex items-center"
+							href={`/${item.title.toLowerCase()}`}
 						>
-							<Link href={`/${item.title.toLowerCase()}`}>{item.title}</Link>
-						</span>
+							<span>{item.icon}</span>
+							<span
+								className={`text-sideItem text-base font-bold ml-5 duration-300 ${
+									!isExpanded && "opacity-0"
+								}`}
+							>
+								{item.title}
+							</span>
+						</Link>
 					</li>
 				))}
 			</ul>
