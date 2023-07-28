@@ -17,6 +17,10 @@ module.exports = {
 				champBorder: "#2C2C40",
 				champH2: "#CDDCFE",
 			},
+			gridTemplateColumns: {
+				16: "repeat(16, minmax(0,1fr))",
+				20: "repeat(20, minmax(0,1fr))",
+			},
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
 				"gradient-conic":
