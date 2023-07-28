@@ -1,5 +1,5 @@
 import { BsFillGearFill } from "react-icons/bs";
-import { AiTwotoneMail } from "react-icons/Ai";
+import { AiOutlineMail } from "react-icons/Ai";
 
 export default function Navbar() {
 	return (
@@ -10,7 +10,7 @@ export default function Navbar() {
 						<BsFillGearFill className="h-5 w-5" />
 					</button>
 					<button>
-						<AiTwotoneMail className="h-5 w-5" />
+						<AiOutlineMail className="h-5 w-5" />
 					</button>
 					<button className="text-white text-sm bg-blue-500 rounded-sm px-6 py-2 mr-10">
 						Log In

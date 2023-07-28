@@ -43,14 +43,22 @@ export default function Sidebar() {
 			}`}
 		>
 			<div className="flex items-center">
-				<Link href="/">
+				<Link href="/" className="flex items-center">
 					<Image
 						className="m-5"
 						width={40}
 						height={40}
 						src="/icon.png"
 						alt=""
-					></Image>
+					/>
+					<span
+						className={`text-sideItem text-2xl font-bold duration-300 ${
+							!isExpanded && "opacity-0"
+						}`}
+					>
+						{" "}
+						LOL.GG
+					</span>
 				</Link>
 			</div>
 			<div className="h-px mx-3 my-0 bg-divider"></div>
