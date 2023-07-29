@@ -15,6 +15,7 @@ type Item = {
 	description: string;
 	plaintext: string;
 	requiredChampion: string;
+	specialRecipe: number;
 	from: number[];
 	into: number[];
 	image: {

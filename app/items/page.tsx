@@ -22,7 +22,9 @@ export default async function ItemsPage() {
 	const items: Item[] = [];
 	for (let item in res.data) {
 		if (
-			(res.data[item].inStore != false || undefined) &&
+			(res.data[item].inStore != false ||
+				undefined ||
+				res.data[item].specialRecipe) &&
 			res.data[item].maps[11] === true &&
 			!res.data[item].requiredChampion &&
 			res.data[item].name !== "Obsidian Edge"

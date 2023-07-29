@@ -9,6 +9,7 @@ export default async function StarterItems({ items }: ItemProps) {
 					(item) =>
 						item.gold.total <= 450 &&
 						item.gold.total >= 350 &&
+						!item.specialRecipe &&
 						(!item.into || item.into?.length <= 1) && (
 							<>
 								<Image
