@@ -1,6 +1,13 @@
 import getItemsData from "@/services/getItems";
 import Image from "next/image";
 import StarterItems from "./components/StarterItems";
+import ConsumableItems from "./components/ConsumableItems";
+import Boots from "./components/Boots";
+import BasicItems from "./components/BasicItems";
+import EpicItems from "./components/EpicItems";
+import LegendaryItems from "./components/LegendaryItems";
+import MythicItems from "./components/MythicItems";
+import Trinkets from "./components/Trinkets";
 
 export async function generateMetadata() {
 	return {
@@ -29,125 +36,13 @@ export default async function ItemsPage() {
 				<h1>League of Legends Items</h1>
 			</div>
 			<StarterItems items={items} />
-			<div className="mt-16 p-4 rounded-sm bg-champBG">
-				<h1 className="text-start mb-4">Consumable Items</h1>
-				<div className="grid grid-cols-20 gap-3 text-white">
-					{items.map(
-						(item) =>
-							item.gold.total <= 450 && (
-								<Image
-									className="border border-champBorder"
-									height={36}
-									width={36}
-									src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
-									alt=""
-								/>
-							)
-					)}
-				</div>
-			</div>
-			<div className="mt-16 p-4 rounded-sm bg-champBG">
-				<h1 className="text-start mb-4">Trinkets</h1>
-				<div className="grid grid-cols-20 gap-3 text-white">
-					{items.map(
-						(item) =>
-							item.gold.total <= 450 && (
-								<Image
-									className="border border-champBorder"
-									height={36}
-									width={36}
-									src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
-									alt=""
-								/>
-							)
-					)}
-				</div>
-			</div>
-			<div className="mt-16 p-4 rounded-sm bg-champBG">
-				<h1 className="text-start mb-4">Boots</h1>
-				<div className="grid grid-cols-20 gap-3 text-white">
-					{items.map(
-						(item) =>
-							item.gold.total <= 450 && (
-								<Image
-									className="border border-champBorder"
-									height={36}
-									width={36}
-									src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
-									alt=""
-								/>
-							)
-					)}
-				</div>
-			</div>
-			<div className="mt-16 p-4 rounded-sm bg-champBG">
-				<h1 className="text-start mb-4">Basic Items</h1>
-				<div className="grid grid-cols-20 gap-3 text-white">
-					{items.map(
-						(item) =>
-							item.gold.total <= 450 && (
-								<Image
-									className="border border-champBorder"
-									height={36}
-									width={36}
-									src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
-									alt=""
-								/>
-							)
-					)}
-				</div>
-			</div>
-			<div className="mt-16 p-4 rounded-sm bg-champBG">
-				<h1 className="text-start mb-4">Epic Items</h1>
-				<div className="grid grid-cols-20 gap-3 text-white">
-					{items.map(
-						(item) =>
-							item.gold.total <= 450 && (
-								<Image
-									className="border border-champBorder"
-									height={36}
-									width={36}
-									src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
-									alt=""
-								/>
-							)
-					)}
-				</div>
-			</div>
-			<div className="mt-16 p-4 rounded-sm bg-champBG">
-				<h1 className="text-start mb-4">Legendary Items</h1>
-				<div className="grid grid-cols-20 gap-3 text-white">
-					{items.map(
-						(item) =>
-							item.gold.total <= 450 && (
-								<Image
-									className="border border-champBorder"
-									height={36}
-									width={36}
-									src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
-									alt=""
-								/>
-							)
-					)}
-				</div>
-			</div>
-			<div className="mt-16 p-4 rounded-sm bg-champBG">
-				<h1 className="text-start mb-4">Mythic Items</h1>
-				<div className="grid grid-cols-20 gap-3 text-white">
-					{items.map(
-						(item) =>
-							item.gold.total <= 450 && (
-								<Image
-									className="border border-champBorder"
-									height={36}
-									width={36}
-									src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
-									alt=""
-								/>
-							)
-					)}
-				</div>
-			</div>
+			<ConsumableItems items={items} />
+			<Trinkets items={items} />
+			<Boots items={items} />
+			<BasicItems items={items} />
+			<EpicItems items={items} />
+			<LegendaryItems items={items} />
+			<MythicItems items={items} />
 		</div>
 	);
 }

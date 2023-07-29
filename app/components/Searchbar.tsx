@@ -16,9 +16,6 @@ export default function Searchbar() {
 			<div className="h-full flex flex-col items-center justify-center">
 				<div className="flex">
 					<h1 className="text-white text-8xl mb-10">LOL.GG</h1>
-					{/* <span className="text-white text-3xl mt-3 ml-3">
-						Best League Database
-					</span> */}
 				</div>
 				<form
 					onSubmit={handleSubmit}
