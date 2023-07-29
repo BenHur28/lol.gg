@@ -7,7 +7,13 @@ export default async function BasicItems({ items }: ItemProps) {
 			<div className="grid grid-cols-20 gap-3 text-white">
 				{items.map(
 					(item) =>
-						item.gold.total <= 450 && (
+						item.gold.total <= 1400 &&
+						item.into?.length >= 1 &&
+						!item.from &&
+						!item.tags?.includes("Consumable") &&
+						item.name !== "Boots" &&
+						item.name !== "Dark Seal" &&
+						item.name !== "Watchful Wardstone" && (
 							<Image
 								className="border border-champBorder"
 								height={36}
