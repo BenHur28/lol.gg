@@ -9,7 +9,7 @@ export default async function EpicItems({ items }: ItemProps) {
 					(item) =>
 						item.gold.total <= 450 && (
 							<Image
-								className="border border-champBorder"
+								className="border border-itemBorder rounded-sm"
 								height={36}
 								width={36}
 								src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}

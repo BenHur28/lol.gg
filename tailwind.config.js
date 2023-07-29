@@ -16,6 +16,8 @@ module.exports = {
 				champBG: "#17172E",
 				champBorder: "#2C2C40",
 				champH2: "#CDDCFE",
+				itemBorder: "#915656",
+				itemBorder2: "#565691",
 			},
 			gridTemplateColumns: {
 				16: "repeat(16, minmax(0,1fr))",

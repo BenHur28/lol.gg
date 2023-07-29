@@ -15,7 +15,7 @@ export default async function BasicItems({ items }: ItemProps) {
 						item.name !== "Dark Seal" &&
 						item.name !== "Watchful Wardstone" && (
 							<Image
-								className="border border-champBorder"
+								className="border border-itemBorder rounded-sm"
 								height={36}
 								width={36}
 								src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
