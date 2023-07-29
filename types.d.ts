@@ -15,6 +15,7 @@ type Item = {
 	description: string;
 	plaintext: string;
 	requiredChampion: string;
+	into: [];
 	image: {
 		full: string;
 	};
