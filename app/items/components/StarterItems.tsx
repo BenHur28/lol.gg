@@ -8,7 +8,7 @@ export default async function StarterItems({ items }: ItemProps) {
 				{items.map(
 					(item) =>
 						item.gold.total <= 450 &&
-						item.gold.total >= 400 &&
+						item.gold.total >= 350 &&
 						(!item.into || item.into?.length <= 1) && (
 							<>
 								<Image
