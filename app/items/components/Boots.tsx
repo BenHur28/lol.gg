@@ -7,7 +7,7 @@ export default async function Boots({ items }: ItemProps) {
 			<div className="grid grid-cols-20 gap-3 text-white">
 				{items.map(
 					(item) =>
-						item.gold.total <= 450 && (
+						(item.from?.[0] == 1001 || item.name === "Boots") && (
 							<Image
 								className="border border-champBorder"
 								height={36}
