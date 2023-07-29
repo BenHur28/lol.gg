@@ -7,7 +7,7 @@ export default async function ConsumableItems({ items }: ItemProps) {
 			<div className="grid grid-cols-20 gap-3 text-white">
 				{items.map(
 					(item) =>
-						item.gold.total <= 450 && (
+						item.tags?.includes("Consumable") && (
 							<Image
 								className="border border-champBorder"
 								height={36}

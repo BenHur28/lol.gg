@@ -15,7 +15,7 @@ type Item = {
 	description: string;
 	plaintext: string;
 	requiredChampion: string;
-	into: [];
+	into: number[];
 	image: {
 		full: string;
 	};
@@ -25,6 +25,7 @@ type Item = {
 		total: number;
 		sell: number;
 	};
+	tags: string[];
 	maps: {
 		"11": boolean;
 		"12": boolean;
