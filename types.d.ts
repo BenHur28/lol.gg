@@ -35,4 +35,5 @@ type Item = {
 		"22": boolean;
 		"30": boolean;
 	};
+	depth: number;
 };
