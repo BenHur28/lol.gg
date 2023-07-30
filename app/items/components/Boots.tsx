@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Boots({ items }: ItemProps) {
 	return (
@@ -8,14 +9,17 @@ export default async function Boots({ items }: ItemProps) {
 				{items.map(
 					(item) =>
 						(item.from?.[0] == 1001 || item.name === "Boots") && (
-							<Image
-								key={item.name}
-								className="border border-itemBorder rounded-sm"
-								height={36}
-								width={36}
-								src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
-								alt=""
-							/>
+							<>
+								<Link key={item.name} href={`/items/${item.name}`}>
+									<Image
+										className="border border-itemBorder rounded-sm"
+										height={36}
+										width={36}
+										src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
+										alt=""
+									/>
+								</Link>
+							</>
 						)
 				)}
 			</div>
