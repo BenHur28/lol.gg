@@ -13,8 +13,8 @@ export default function Searchbar() {
 
 	return (
 		<div className="h-screen w-full">
-			<div className="h-full flex flex-col items-center justify-center">
-				<div className="flex">
+			<div className="h-full flex flex-col items-center min-[1024px]:justify-center">
+				<div className="flex max-[1024px]:mt-32">
 					<h1 className="text-white text-8xl mb-10">LOL.GG</h1>
 				</div>
 				<form
