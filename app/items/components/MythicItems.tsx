@@ -7,7 +7,10 @@ export default async function MythicItems({ items }: ItemProps) {
 			<div className="grid grid-cols-20 gap-3 text-white">
 				{items.map(
 					(item) =>
-						item.gold.total <= 450 && (
+						((item.depth == 3 &&
+							item.into?.length == 1 &&
+							item.name != "Prowler's Claw") ||
+							item.name == "Infinity Edge") && (
 							<Image
 								className="border border-itemBorder rounded-sm"
 								height={36}
