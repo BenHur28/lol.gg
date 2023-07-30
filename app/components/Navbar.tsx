@@ -3,7 +3,7 @@ import { AiOutlineMail } from "react-icons/Ai";
 
 export default function Navbar() {
 	return (
-		<nav className="w-full bg-nav h-20 border-b border-b-border">
+		<nav className="fixed z-10 w-full bg-nav h-20 border-b border-b-border">
 			<div className="h-full flex flex-row text-white justify-end items-center">
 				<div className="flex flex-row gap-4 items-center">
 					<button>
