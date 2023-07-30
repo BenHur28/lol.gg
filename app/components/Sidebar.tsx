@@ -39,7 +39,7 @@ export default function Sidebar() {
 			onMouseEnter={onMouseEnter}
 			onMouseLeave={onMouseLeave}
 			className={`z-20 h-full relative hidden md:flex md:flex-col md:fixed transition-all duration-300 bg-side ${
-				isExpanded ? "hover:w-60 z-0" : "md:w-20"
+				isExpanded ? "hover:w-60 z-0 " : "md:w-20 delay-150"
 			}`}
 		>
 			<div className="flex items-center">
@@ -71,7 +71,7 @@ export default function Sidebar() {
 						>
 							<span>{item.icon}</span>
 							<span
-								className={`text-sideItem text-base font-bold ml-5 duration-300 ${
+								className={`text-sideItem text-base font-bold ml-8 duration-300 ${
 									!isExpanded && "opacity-0"
 								}`}
 							>
