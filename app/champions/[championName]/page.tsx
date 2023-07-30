@@ -21,7 +21,7 @@ export default async function ChampionPage({
 	const res = await championData;
 	return (
 		<div className="text-white text-center flex flex-col items-center">
-			<h1>{res.data[championName].id}</h1>
+			<h1 className="mt-32 mb-10">{res.data[championName].id}</h1>
 			<Image
 				height={96}
 				width={86}

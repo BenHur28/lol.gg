@@ -19,9 +19,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className=" bg-nav">
-				<Sidebar />
-				<Navbar />
-				{children}
+				<div>
+					<Sidebar />
+					<Navbar />
+					{children}
+				</div>
 			</body>
 		</html>
 	);

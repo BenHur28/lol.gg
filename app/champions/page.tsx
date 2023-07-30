@@ -19,7 +19,7 @@ export default async function ChampionsPage() {
 	return (
 		<div className="flex flex-col items-center">
 			<div>
-				<div className="my-10">
+				<div className="mt-32 mb-10">
 					<h1 className="text-white text-4xl font-bold mb-2">Champions List</h1>
 					<h2 className="text-champH2 text-xl font-bold">
 						Discover best builds for every champion

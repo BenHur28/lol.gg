@@ -1,5 +1,4 @@
 import getItemsData from "@/services/getItems";
-import Image from "next/image";
 import StarterItems from "./components/StarterItems";
 import ConsumableItems from "./components/ConsumableItems";
 import Boots from "./components/Boots";
@@ -34,7 +33,7 @@ export default async function ItemsPage() {
 	}
 	return (
 		<div className="flex flex-col items-center text-white text-center">
-			<div className="">
+			<div className="mt-32">
 				<h1>League of Legends Items</h1>
 			</div>
 			<StarterItems items={items} />
