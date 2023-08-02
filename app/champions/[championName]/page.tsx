@@ -20,14 +20,29 @@ export default async function ChampionPage({
 	const championData = getChampionData(championName);
 	const res = await championData;
 	return (
-		<div className="text-white text-center flex flex-col items-center">
-			<h1 className="mt-32 mb-10">{res.data[championName].id}</h1>
-			<Image
-				height={96}
-				width={86}
-				src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${res.data[championName].image.full}`}
-				alt=""
-			/>
+		<div className="flex flex-col pl-20 mx-auto w-1/2 pt-32">
+			<div className="flex flex-row w-full items-top">
+				<Image
+					className=""
+					height={100}
+					width={100}
+					src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${res.data[championName].image.full}`}
+					alt=""
+				/>
+				<div className="ml-3 flex flex-col">
+					<h1 className="text-white text-4xl">{res.data[championName].id}</h1>
+					<h2 className="flex-wrap text-white w-full">
+						{res.data[championName].title}
+					</h2>
+					<span className="text-white">
+						{championName} is a
+						{res.data[championName].tags.map((tag: string) => (
+							<span>{" " + tag + " "}</span>
+						))}{" "}
+						champion in League of Legends
+					</span>
+				</div>
+			</div>
 		</div>
 	);
 }
