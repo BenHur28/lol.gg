@@ -43,6 +43,16 @@ export default async function ChampionPage({
 					</span>
 				</div>
 			</div>
+			<div className="text-white flex">
+				{res.data[championName].spells.map((spell: any) => (
+					<Image
+						src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/spell/${spell.image.full}`}
+						height={48}
+						width={48}
+						alt=""
+					></Image>
+				))}
+			</div>
 		</div>
 	);
 }
