@@ -17,7 +17,6 @@ export async function generateMetadata({ params: { championName } }: Props) {
 export default async function ChampionPage({
 	params: { championName },
 }: Props) {
-	const hotkeys = ["Q", "W", "E", "R"];
 	const championData = getChampionData(championName);
 	const res = await championData;
 	return (
@@ -44,35 +43,96 @@ export default async function ChampionPage({
 					</span>
 				</div>
 			</div>
-			<div className="ml-1 mt-10 p-4 text-white flex flex-row gap-2 w-full border border-champBorder bg-champBG justify-center">
-				<div className="flex flex-col items-center">
-					<Image
-						className="rounded-sm border border-itemBorder"
-						src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/passive/${res.data[championName].passive.image.full}`}
-						height={48}
-						width={48}
-						alt=""
-					/>
-					<span className="relative -top-2 border border-champBorder rounded-sm bg-champBG px-1 text-sm">
-						P
-					</span>
-				</div>
-
-				{res.data[championName].spells.map((spell: any) => (
-					<div className="flex flex-col items-center">
+			<div className="mt-10 p-4 text-white flex flex-col w-full border border-champBorder bg-champBG justify-center items-center">
+				<h1>{`${championName} Abilities Patch ${res.version}`}</h1>
+				<div className="flex flex-row gap-2 w-full justify-center">
+					<div className="flex flex-col items-center mt-4">
 						<Image
 							className="rounded-sm border border-itemBorder"
-							src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/spell/${spell.image.full}`}
+							src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/passive/${res.data[championName].passive.image.full}`}
 							height={48}
 							width={48}
 							alt=""
 						/>
 						<span className="relative -top-2 border border-champBorder rounded-sm bg-champBG px-1 text-sm">
-							{spell.id.charAt(spell.id.length - 1)}
+							P
 						</span>
 					</div>
-				))}
+
+					{res.data[championName].spells.map((spell: any) => (
+						<div className="flex flex-col items-center mt-4">
+							<Image
+								className="rounded-sm border border-itemBorder"
+								src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/spell/${spell.image.full}`}
+								height={48}
+								width={48}
+								alt=""
+							/>
+							<span className="relative -top-2 border border-champBorder rounded-sm bg-champBG px-1 text-sm">
+								{spell.id.charAt(spell.id.length - 1)}
+							</span>
+						</div>
+					))}
+				</div>
 			</div>
+			<div className="p-8 w-full border-l border-r border-b border-champBorder bg-champBG">
+				<div className="flex flex-row">
+					<Image
+						className="rounded-sm border border-itemBorder"
+						src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/passive/${res.data[championName].passive.image.full}`}
+						height={60}
+						width={60}
+						alt=""
+					/>
+					<div className="flex flex-col ml-4 text-white text-xl w-full">
+						<h2>{res.data[championName].passive.name}</h2>
+					</div>
+					<div className="whitespace-nowrap text-white text-xl">
+						<h2>{`${championName}'s Passive`}</h2>
+					</div>
+				</div>
+				<div className="mt-10 text-white">
+					{res.data[championName].passive.description.replace(
+						/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g,
+						""
+					)}
+				</div>
+			</div>
+			{res.data[championName].spells.map((spell: any) => (
+				<div className="p-8 w-full border-l border-r border-b border-champBorder bg-champBG">
+					<div className="flex flex-row">
+						<Image
+							className="rounded-sm border border-itemBorder"
+							src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/spell/${spell.image.full}`}
+							height={60}
+							width={60}
+							alt=""
+						/>
+						<div className="flex flex-col ml-4 text-white text-xl w-full">
+							<h2>{spell.name}</h2>
+						</div>
+						<div className="whitespace-nowrap text-white text-xl">
+							<h2>{`${championName}'s ${spell.id.charAt(
+								spell.id.length - 1
+							)}`}</h2>
+						</div>
+					</div>
+					<div className="mt-10 text-white">
+						<h2>
+							{spell.description.replace(
+								/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g,
+								""
+							)}
+						</h2>
+						<p>
+							{spell.tooltip.replace(
+								/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g,
+								""
+							)}
+						</p>
+					</div>
+				</div>
+			))}
 		</div>
 	);
 }
