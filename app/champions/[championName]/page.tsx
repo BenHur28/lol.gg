@@ -20,7 +20,7 @@ export default async function ChampionPage({
 	const championData = getChampionData(championName);
 	const res = await championData;
 	return (
-		<div className="flex flex-col pl-20 mx-auto w-1/2 pt-32">
+		<div className="flex flex-col pl-20 mx-auto w-1/2 pt-32 mb-20">
 			<div className="flex flex-row w-full items-top">
 				<Image
 					className="border border-champBorder"
