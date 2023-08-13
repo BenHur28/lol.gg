@@ -21,7 +21,7 @@ export default async function page({ params: { summonerName } }: Props) {
 	const winLossPercent = (data.wins / (data.wins + data.losses)) * 100;
 	console.log(data);
 	return (
-		<div className="pt-32 pl-40 mb-10 text-white">
+		<div className="pt-32 mb-10 text-white">
 			<div className="flex flex-col items-center">
 				<h1>{summonerName}</h1>
 				<Image
