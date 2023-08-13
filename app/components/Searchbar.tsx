@@ -47,7 +47,7 @@ export default function Searchbar() {
 				<div className="flex max-[1024px]:mt-32">
 					<h1 className="text-white text-8xl mb-10">LOL.GG</h1>
 				</div>
-				<div className="flex md:w-2/5">
+				<div className="flex md:w-2/5 ml-7">
 					<div className="relative top-4 left-16 z-10 text-black">
 						<button onClick={handleOpen1}>Search</button>
 						{open1 ? (
