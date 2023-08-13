@@ -7,9 +7,10 @@ type Props = {
 };
 
 export async function generateMetadata({ params: { summonerName } }: Props) {
+	const name = summonerName.charAt(0).toUpperCase() + summonerName.slice(1);
 	return {
-		title: `${summonerName} Information`,
-		description: `Summoner page for ${summonerName}`,
+		title: `${name}'s Stats`,
+		description: `Summoner page for ${name}`,
 	};
 }
 
