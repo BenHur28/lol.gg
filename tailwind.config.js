@@ -18,6 +18,9 @@ module.exports = {
 				champH2: "#CDDCFE",
 				itemBorder: "#915656",
 				itemBorder2: "#565691",
+				search: "#e7eeff",
+				region: "#ff9b00",
+				textSearch: "#626696",
 			},
 			gridTemplateColumns: {
 				16: "repeat(16, minmax(0,1fr))",

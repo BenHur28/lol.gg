@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 export default function Searchbar() {
 	const [search, setSearch] = useState("");
-	const [searchFilter, setSearchFilter] = useState("summoners");
+	const [searchFilter, setSearchFilter] = useState("Summoners");
 	const [open1, setOpen1] = useState(false);
 	const [open2, setOpen2] = useState(false);
 	const [region, setRegion] = useState("NA");
@@ -74,20 +74,20 @@ export default function Searchbar() {
 					</form>
 				</div>
 				<div className="flex flex-row mt-4 md:w-1/3 justify-between">
-					<div className=" text-black bg-red-200 px-10">
+					<div className=" text-textSearch text-lg font-semibold bg-search rounded-sm px-10 py-1">
 						<button onClick={handleOpen1}>{searchFilter}</button>
 						{open1 ? (
 							<ul className="">
-								<li className="" onClick={() => handleSetSearch("champions")}>
-									<button>champions</button>
+								<li className="" onClick={() => handleSetSearch("Champions")}>
+									<button>Champions</button>
 								</li>
-								<li className="" onClick={() => handleSetSearch("summoners")}>
-									<button>summoners</button>
+								<li className="" onClick={() => handleSetSearch("Summoners")}>
+									<button>Summoners</button>
 								</li>
 							</ul>
 						) : null}
 					</div>
-					<div className="  text-black bg-yellow-400 px-10">
+					<div className="  text-white text-lg font-semibold bg-region rounded-sm px-2 py-1">
 						<button onClick={handleOpen2}>{region}</button>
 						{open2 ? (
 							<ul className="">
