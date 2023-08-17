@@ -6,6 +6,7 @@ export default function Searchbar() {
 	const [search, setSearch] = useState("");
 	const [open1, setOpen1] = useState(false);
 	const [open2, setOpen2] = useState(false);
+	const [region, setRegion] = useState("NA");
 	const router = useRouter();
 	const regions = [
 		"NA",
@@ -41,26 +42,22 @@ export default function Searchbar() {
 		setOpen2(!open2);
 	};
 
+	const handleSetSearch = (s: string) => {
+		setSearch(s);
+		setOpen1(!open1);
+	};
+	const handleSetRegion = (r: string) => {
+		setRegion(r);
+		setOpen2(!open2);
+	};
+
 	return (
 		<div className="h-screen w-full">
 			<div className="h-full flex flex-col items-center min-[1024px]:justify-center">
 				<div className="flex max-[1024px]:mt-32">
 					<h1 className="text-white text-8xl mb-10">LOL.GG</h1>
 				</div>
-				<div className="flex md:w-2/5 ml-7">
-					<div className="relative top-4 left-16 z-10 text-black">
-						<button onClick={handleOpen1}>Search</button>
-						{open1 ? (
-							<ul className="">
-								<li className="">
-									<button>Summoners</button>
-								</li>
-								<li className="">
-									<button>Champions</button>
-								</li>
-							</ul>
-						) : null}
-					</div>
+				<div className="flex items-center md:w-1/3">
 					<form
 						onSubmit={handleSubmit}
 						className="flex flex-row w-full bg-white rounded-md py-4 px-2 justify-between"
@@ -69,17 +66,32 @@ export default function Searchbar() {
 							type="text"
 							value={search}
 							onChange={(e) => setSearch(e.target.value)}
-							className="mx-4 pl-20 w-full outline-none"
+							className="mx-4 w-full outline-none"
 							placeholder="Search Summoner or a Champion"
 						/>
 						<button>🔍</button>
 					</form>
-					<div className="relative top-4 right-24 z-10 text-black">
-						<button onClick={handleOpen2}>Region</button>
+				</div>
+				<div className="flex flex-row mt-4 md:w-1/3 justify-between">
+					<div className=" text-black bg-red-200 px-10">
+						<button onClick={handleOpen1}>{search}</button>
+						{open1 ? (
+							<ul className="">
+								<li className="" onClick={() => handleSetSearch("Summoners")}>
+									<button>Summoners</button>
+								</li>
+								<li className="" onClick={() => handleSetSearch("Champions")}>
+									<button>Champions</button>
+								</li>
+							</ul>
+						) : null}
+					</div>
+					<div className="  text-black bg-yellow-400 px-10">
+						<button onClick={handleOpen2}>{region}</button>
 						{open2 ? (
 							<ul className="">
 								{regions.map((region) => (
-									<li>
+									<li className="" onClick={() => handleSetRegion(region)}>
 										<button>{region}</button>
 									</li>
 								))}
