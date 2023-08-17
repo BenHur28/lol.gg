@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 export default function Searchbar() {
 	const [search, setSearch] = useState("");
+	const [searchFilter, setSearchFilter] = useState("summoners");
 	const [open1, setOpen1] = useState(false);
 	const [open2, setOpen2] = useState(false);
 	const [region, setRegion] = useState("NA");
@@ -11,7 +12,7 @@ export default function Searchbar() {
 	const regions = [
 		"NA",
 		"EUW",
-		"EUW",
+		"EUN",
 		"KR",
 		"BR",
 		"JP",
@@ -30,7 +31,7 @@ export default function Searchbar() {
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (search !== "") {
-			router.push(`/champions/${search}`);
+			router.push(`/${searchFilter}/${search}`);
 		}
 	};
 
@@ -43,7 +44,7 @@ export default function Searchbar() {
 	};
 
 	const handleSetSearch = (s: string) => {
-		setSearch(s);
+		setSearchFilter(s);
 		setOpen1(!open1);
 	};
 	const handleSetRegion = (r: string) => {
@@ -74,14 +75,14 @@ export default function Searchbar() {
 				</div>
 				<div className="flex flex-row mt-4 md:w-1/3 justify-between">
 					<div className=" text-black bg-red-200 px-10">
-						<button onClick={handleOpen1}>{search}</button>
+						<button onClick={handleOpen1}>{searchFilter}</button>
 						{open1 ? (
 							<ul className="">
-								<li className="" onClick={() => handleSetSearch("Summoners")}>
-									<button>Summoners</button>
+								<li className="" onClick={() => handleSetSearch("champions")}>
+									<button>champions</button>
 								</li>
-								<li className="" onClick={() => handleSetSearch("Champions")}>
-									<button>Champions</button>
+								<li className="" onClick={() => handleSetSearch("summoners")}>
+									<button>summoners</button>
 								</li>
 							</ul>
 						) : null}
