@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { GiBroadsword } from "react-icons/gi";
 import { RiSkullLine } from "react-icons/ri";
-import { FaTrophy } from "react-icons/Fa";
+import { FaTrophy } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 

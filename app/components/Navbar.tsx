@@ -1,6 +1,6 @@
 import { BsFillGearFill } from "react-icons/bs";
-import { AiOutlineUserAdd } from "react-icons/Ai";
-import { GrMail } from "react-icons/Gr";
+import { AiOutlineUserAdd } from "react-icons/ai";
+import { GrMail } from "react-icons/gr";
 
 export default function Navbar() {
 	return (
