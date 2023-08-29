@@ -1,7 +1,16 @@
 "use client";
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { regions, filter } from "@/lib/data";
+import { regions, filters } from "@/lib/data";
+import {
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+} from "@/components/ui/popover";
+import { Check, ChevronsUpDown } from "lucide-react";
+import { Command, CommandGroup, CommandItem } from "@/components/ui/command";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 export default function Searchbar() {
 	const [search, setSearch] = useState("");
@@ -9,6 +18,7 @@ export default function Searchbar() {
 	const [open1, setOpen1] = useState(false);
 	const [open2, setOpen2] = useState(false);
 	const [region, setRegion] = useState("NA");
+	const [value, setValue] = useState("summoners");
 	const router = useRouter();
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -16,23 +26,6 @@ export default function Searchbar() {
 		if (search !== "") {
 			router.push(`/${searchFilter}/${search}`);
 		}
-	};
-
-	const handleOpen1 = () => {
-		setOpen1(!open1);
-	};
-
-	const handleOpen2 = () => {
-		setOpen2(!open2);
-	};
-
-	const handleSetSearch = (s: string) => {
-		setSearchFilter(s);
-		setOpen1(!open1);
-	};
-	const handleSetRegion = (r: string) => {
-		setRegion(r);
-		setOpen2(!open2);
 	};
 
 	return (
@@ -57,7 +50,43 @@ export default function Searchbar() {
 					</form>
 				</div>
 				<div className="flex flex-row mt-4 md:w-1/3 justify-between">
-					<div className=" text-textSearch text-lg font-semibold bg-search rounded-sm px-10 py-1">
+					<Popover open={open1} onOpenChange={setOpen1}>
+						<PopoverTrigger asChild>
+							<Button
+								variant="outline"
+								role="combobox"
+								aria-expanded={open1}
+								className="w-[200px] justify-between"
+							>
+								{value}
+								<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+							</Button>
+						</PopoverTrigger>
+						<PopoverContent className="w-[200px] p-0">
+							<Command>
+								<CommandGroup>
+									{filters.map((filter) => (
+										<CommandItem
+											key={filter.value}
+											onSelect={(currentValue) => {
+												setValue(currentValue === value ? "" : currentValue);
+												setOpen1(false);
+											}}
+										>
+											<Check
+												className={cn(
+													"mr-2 h-4 w-4",
+													value === filter.value ? "opacity-100" : "opacity-0"
+												)}
+											/>
+											{filter.label}
+										</CommandItem>
+									))}
+								</CommandGroup>
+							</Command>
+						</PopoverContent>
+					</Popover>
+					{/* <div className=" text-textSearch text-lg font-semibold bg-search rounded-sm px-10 py-1">
 						<button onClick={handleOpen1}>{searchFilter}</button>
 						{open1 ? (
 							<ul className="">
@@ -85,7 +114,7 @@ export default function Searchbar() {
 								))}
 							</ul>
 						) : null}
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>
