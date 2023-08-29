@@ -92,7 +92,11 @@ export default function Searchbar() {
 						{open2 ? (
 							<ul className="">
 								{regions.map((region) => (
-									<li className="" onClick={() => handleSetRegion(region)}>
+									<li
+										key={region}
+										className=""
+										onClick={() => handleSetRegion(region)}
+									>
 										<button>{region}</button>
 									</li>
 								))}
