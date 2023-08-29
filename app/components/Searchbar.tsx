@@ -14,11 +14,11 @@ import { Button } from "@/components/ui/button";
 
 export default function Searchbar() {
 	const [search, setSearch] = useState("");
-	const [searchFilter, setSearchFilter] = useState("Summoners");
+	const [searchFilter, setSearchFilter] = useState("summoners");
 	const [open1, setOpen1] = useState(false);
 	const [open2, setOpen2] = useState(false);
-	const [region, setRegion] = useState("NA");
-	const [value, setValue] = useState("summoners");
+	const [regionValue, setRegionValue] = useState("NA");
+	const [filterValue, setFilterValue] = useState("summoners");
 	const router = useRouter();
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -55,10 +55,10 @@ export default function Searchbar() {
 							<Button
 								variant="outline"
 								role="combobox"
-								aria-expanded={open1}
+								aria-expanded={open2}
 								className="w-[200px] justify-between"
 							>
-								{value}
+								{filterValue}
 								<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 							</Button>
 						</PopoverTrigger>
@@ -69,14 +69,19 @@ export default function Searchbar() {
 										<CommandItem
 											key={filter.value}
 											onSelect={(currentValue) => {
-												setValue(currentValue === value ? "" : currentValue);
+												setFilterValue(
+													currentValue === filterValue ? "" : currentValue
+												);
 												setOpen1(false);
+												setSearchFilter(filter.value);
 											}}
 										>
 											<Check
 												className={cn(
 													"mr-2 h-4 w-4",
-													value === filter.value ? "opacity-100" : "opacity-0"
+													filterValue === filter.value
+														? "opacity-100"
+														: "opacity-0"
 												)}
 											/>
 											{filter.label}
@@ -86,35 +91,46 @@ export default function Searchbar() {
 							</Command>
 						</PopoverContent>
 					</Popover>
-					{/* <div className=" text-textSearch text-lg font-semibold bg-search rounded-sm px-10 py-1">
-						<button onClick={handleOpen1}>{searchFilter}</button>
-						{open1 ? (
-							<ul className="">
-								<li className="" onClick={() => handleSetSearch("champions")}>
-									<button>Champions</button>
-								</li>
-								<li className="" onClick={() => handleSetSearch("summoners")}>
-									<button>Summoners</button>
-								</li>
-							</ul>
-						) : null}
-					</div>
-					<div className="  text-white text-lg font-semibold bg-region rounded-sm px-2 py-1">
-						<button onClick={handleOpen2}>{region}</button>
-						{open2 ? (
-							<ul className="">
-								{regions.map((region) => (
-									<li
-										key={region}
-										className=""
-										onClick={() => handleSetRegion(region)}
-									>
-										<button>{region}</button>
-									</li>
-								))}
-							</ul>
-						) : null}
-					</div> */}
+					<Popover open={open2} onOpenChange={setOpen2}>
+						<PopoverTrigger asChild>
+							<Button
+								variant="outline"
+								role="combobox"
+								aria-expanded={open2}
+								className="w-[200px] justify-between"
+							>
+								{regionValue.toUpperCase()}
+								<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+							</Button>
+						</PopoverTrigger>
+						<PopoverContent className="w-[200px] p-0">
+							<Command>
+								<CommandGroup>
+									{regions.map((filter) => (
+										<CommandItem
+											key={filter.value}
+											onSelect={(currentValue) => {
+												setRegionValue(
+													currentValue === regionValue ? "" : currentValue
+												);
+												setOpen2(false);
+											}}
+										>
+											<Check
+												className={cn(
+													"mr-2 h-4 w-4",
+													regionValue === filter.value
+														? "opacity-100"
+														: "opacity-0"
+												)}
+											/>
+											{filter.label}
+										</CommandItem>
+									))}
+								</CommandGroup>
+							</Command>
+						</PopoverContent>
+					</Popover>
 				</div>
 			</div>
 		</div>

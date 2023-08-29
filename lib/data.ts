@@ -1,10 +1,10 @@
 export const filters = [
 	{
-		value: "Summoners",
+		value: "summoners",
 		label: "Summoners",
 	},
 	{
-		value: "Champions",
+		value: "champions",
 		label: "Champions",
 	},
 ];
