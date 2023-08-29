@@ -49,7 +49,7 @@ export default function Searchbar() {
 						<button>🔍</button>
 					</form>
 				</div>
-				<div className="flex flex-row mt-4 md:w-1/3 justify-between">
+				<div className="flex min-[320px]:flex-col gap-y-4 lg:flex-row mt-4 md:w-1/3 justify-between">
 					<Popover open={open1} onOpenChange={setOpen1}>
 						<PopoverTrigger asChild>
 							<Button
