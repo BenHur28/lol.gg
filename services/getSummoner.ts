@@ -15,5 +15,5 @@ export default async function getSummoner(
 	const filtered_data = data.filter(
 		(d: { queueType: string }) => d.queueType != ""
 	);
-	return filtered_data;
+	return [filtered_data, profileIconId];
 }

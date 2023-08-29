@@ -19,6 +19,7 @@ module.exports = {
 			colors: {
 				nav: "#070720",
 				side: "#0D0D28",
+				matchHistory: "#191937",
 				sideItem: "#5C5C8E",
 				border: "#0d0d28",
 				divider: "#191937",
