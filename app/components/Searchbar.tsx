@@ -1,6 +1,7 @@
 "use client";
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import { regions, filter } from "@/lib/data";
 
 export default function Searchbar() {
 	const [search, setSearch] = useState("");
@@ -9,24 +10,6 @@ export default function Searchbar() {
 	const [open2, setOpen2] = useState(false);
 	const [region, setRegion] = useState("NA");
 	const router = useRouter();
-	const regions = [
-		"NA",
-		"EUW",
-		"EUN",
-		"KR",
-		"BR",
-		"JP",
-		"RU",
-		"OCE",
-		"TR",
-		"LAN",
-		"LAS",
-		"PH",
-		"SG",
-		"TH",
-		"TW",
-		"VN",
-	];
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -78,10 +61,10 @@ export default function Searchbar() {
 						<button onClick={handleOpen1}>{searchFilter}</button>
 						{open1 ? (
 							<ul className="">
-								<li className="" onClick={() => handleSetSearch("Champions")}>
+								<li className="" onClick={() => handleSetSearch("champions")}>
 									<button>Champions</button>
 								</li>
-								<li className="" onClick={() => handleSetSearch("Summoners")}>
+								<li className="" onClick={() => handleSetSearch("summoners")}>
 									<button>Summoners</button>
 								</li>
 							</ul>

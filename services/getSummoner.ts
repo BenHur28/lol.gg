@@ -9,6 +9,11 @@ export default async function getSummoner(summonerName: string) {
 	);
 
 	const data = await responseRanked.json();
-	const { queueType, tier, rank, wins, losses } = data[1];
-	return { id, profileIconId, queueType, tier, rank, wins, losses };
+	if (data[1]) {
+		const { queueType, tier, rank, wins, losses } = data[1];
+		return { id, profileIconId, queueType, tier, rank, wins, losses };
+	} else {
+		const { queueType, tier, rank, wins, losses } = data;
+		return { id, profileIconId, queueType, tier, rank, wins, losses };
+	}
 }
