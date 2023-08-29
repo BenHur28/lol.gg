@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 export default function Searchbar() {
 	const [search, setSearch] = useState("");
 	const [searchFilter, setSearchFilter] = useState("summoners");
+	const [regionFilter, setRegionFilter] = useState("NA1");
 	const [open1, setOpen1] = useState(false);
 	const [open2, setOpen2] = useState(false);
 	const [regionValue, setRegionValue] = useState("NA");
@@ -23,7 +24,9 @@ export default function Searchbar() {
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		if (search !== "") {
+		if (search !== "" && searchFilter === "summoners") {
+			router.push(`/${searchFilter}/${search}/${regionFilter}`);
+		} else if (search !== "") {
 			router.push(`/${searchFilter}/${search}`);
 		}
 	};
@@ -106,25 +109,26 @@ export default function Searchbar() {
 						<PopoverContent className="w-[200px] p-0">
 							<Command>
 								<CommandGroup>
-									{regions.map((filter) => (
+									{regions.map((region) => (
 										<CommandItem
-											key={filter.value}
+											key={region.value}
 											onSelect={(currentValue) => {
 												setRegionValue(
 													currentValue === regionValue ? "" : currentValue
 												);
 												setOpen2(false);
+												setRegionFilter(region.value);
 											}}
 										>
 											<Check
 												className={cn(
 													"mr-2 h-4 w-4",
-													regionValue === filter.value
+													regionValue === region.value
 														? "opacity-100"
 														: "opacity-0"
 												)}
 											/>
-											{filter.label}
+											{region.label}
 										</CommandItem>
 									))}
 								</CommandGroup>

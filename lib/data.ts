@@ -10,15 +10,15 @@ export const filters = [
 ];
 export const regions = [
 	{
-		value: "NA",
+		value: "NA1",
 		label: "NA",
 	},
 	{
-		value: "EUW",
+		value: "EUW1",
 		label: "EUW",
 	},
 	{
-		value: "EUN",
+		value: "EUN1",
 		label: "EUN",
 	},
 	{
@@ -26,11 +26,11 @@ export const regions = [
 		label: "KR",
 	},
 	{
-		value: "BR",
+		value: "BR1",
 		label: "BR",
 	},
 	{
-		value: "JP",
+		value: "JP1",
 		label: "JP",
 	},
 	{
@@ -38,39 +38,39 @@ export const regions = [
 		label: "RU",
 	},
 	{
-		value: "OCE",
+		value: "OC1",
 		label: "OCE",
 	},
 	{
-		value: "TR",
+		value: "TR1",
 		label: "TR",
 	},
 	{
-		value: "LAN",
+		value: "LA1",
 		label: "LAN",
 	},
 	{
-		value: "LAS",
+		value: "LA2",
 		label: "LAS",
 	},
 	{
-		value: "PH",
+		value: "PH2",
 		label: "PH",
 	},
 	{
-		value: "SG",
+		value: "SG2",
 		label: "SG",
 	},
 	{
-		value: "TH",
+		value: "TH2",
 		label: "TH",
 	},
 	{
-		value: "TW",
+		value: "TW2",
 		label: "TW",
 	},
 	{
-		value: "VN",
+		value: "VN2",
 		label: "VN",
 	},
 ];

@@ -4,6 +4,7 @@ import Image from "next/image";
 type Props = {
 	params: {
 		summonerName: string;
+		region: string;
 	};
 };
 
@@ -15,8 +16,10 @@ export async function generateMetadata({ params: { summonerName } }: Props) {
 	};
 }
 
-export default async function page({ params: { summonerName } }: Props) {
-	const summoner = getSummoner(summonerName);
+export default async function page({
+	params: { summonerName, region },
+}: Props) {
+	const summoner = getSummoner(summonerName, region);
 	const data = await summoner;
 	const winLossPercent = (data.wins / (data.wins + data.losses)) * 100;
 	console.log(data);
