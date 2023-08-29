@@ -1,4 +1,4 @@
-export const filter = [
+export const filters = [
 	{
 		value: "Summoners",
 		label: "Summoners",
