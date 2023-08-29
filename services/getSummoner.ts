@@ -12,7 +12,8 @@ export default async function getSummoner(
 	);
 
 	const data = await responseRanked.json();
-	console.log(data);
-	const { queueType, tier, rank, wins, losses } = data;
-	return { id, profileIconId, queueType, tier, rank, wins, losses };
+	const filtered_data = data.filter(
+		(d: { queueType: string }) => d.queueType != ""
+	);
+	return filtered_data;
 }
