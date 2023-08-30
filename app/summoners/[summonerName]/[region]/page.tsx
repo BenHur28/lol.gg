@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import getMatchHistory from "@/services/getMatchHistory";
 import getSummoner from "@/services/getSummoner";
 import Image from "next/image";
 
@@ -20,8 +21,11 @@ export async function generateMetadata({ params: { summonerName } }: Props) {
 export default async function page({
 	params: { summonerName, region },
 }: Props) {
+	const location = "";
 	const summoner = getSummoner(summonerName, region);
+	const matchHistory = getMatchHistory(summonerName, region);
 	const data = await summoner;
+	const matches = await matchHistory;
 	const ranked_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "RANKED_SOLO_5x5"
 	);
@@ -30,6 +34,7 @@ export default async function page({
 	);
 	console.log(data);
 	console.log(ranked_data);
+	console.log(matchHistory);
 	return (
 		<div className="pt-40 mb-10 text-white">
 			<div className="flex flex-col items-center">
@@ -77,7 +82,9 @@ export default async function page({
 					</div>
 				</div>
 				<div className="col-span-2 text-xl font-semibold p-4 bg-[#11112a] rounded-md">
-					Match History
+					{matches.map((match: any, index: number) => (
+						<div key={index}>{match}</div>
+					))}
 				</div>
 			</div>
 		</div>
