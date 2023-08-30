@@ -5,7 +5,7 @@ export default async function getSummoner(
 	const summonerIdResponse = await fetch(
 		`https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.DATA_API_KEY}`
 	);
-	const { id, profileIconId } = await summonerIdResponse.json();
+	const { id, profileIconId, puuid } = await summonerIdResponse.json();
 
 	const response = await fetch(
 		`https://${region}.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}?api_key=${process.env.DATA_API_KEY}`
@@ -15,5 +15,5 @@ export default async function getSummoner(
 	const filtered_data = data.filter(
 		(d: { queueType: string }) => d.queueType != ""
 	);
-	return [filtered_data, profileIconId];
+	return [filtered_data, profileIconId, puuid];
 }

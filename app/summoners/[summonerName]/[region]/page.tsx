@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import getMatchHistory from "@/services/getMatchHistory";
 import getSummoner from "@/services/getSummoner";
 import Image from "next/image";
@@ -26,12 +27,16 @@ export default async function page({
 	const matchHistory = getMatchHistory(summonerName, region);
 	const data = await summoner;
 	const matches = await matchHistory;
-	console.log(matches);
 	const ranked_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "RANKED_SOLO_5x5"
 	);
 	const normal_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "CHERRY"
+	);
+	console.log(
+		matches[1].info.participants
+			.filter((player: any) => player.puuid == data[2])
+			.filter((p: any) => p.puuid == data[2])[0].win
 	);
 	return (
 		<div className="pt-40 mb-10 text-white">
@@ -81,7 +86,19 @@ export default async function page({
 				</div>
 				<div className="col-span-2 text-xl font-semibold p-4 bg-[#11112a] rounded-md">
 					{matches.map((match: any, index: number) => (
-						<div key={index}>{match.metadata.matchId}</div>
+						<div
+							key={index}
+							className={cn(
+								"w-full m-2 p-3 rounded-md",
+								match.info.participants
+									.filter((player: any) => player.puuid == data[2])
+									.filter((p: any) => p.puuid == data[2])[0].win == true
+									? "bg-blue-800"
+									: "bg-red-800"
+							)}
+						>
+							{match.metadata.matchId}
+						</div>
 					))}
 				</div>
 			</div>
