@@ -17,6 +17,7 @@ export async function generateMetadata({ params: { championName } }: Props) {
 export default async function ChampionPage({
 	params: { championName },
 }: Props) {
+	const icons = ["Q", "W", "E", "R"];
 	const championData = getChampionData(championName);
 	const res = await championData;
 	return (
@@ -37,7 +38,7 @@ export default async function ChampionPage({
 					<span className="text-white">
 						{championName} is a
 						{res.data[championName].tags.map((tag: string) => (
-							<span>{" " + tag + " "}</span>
+							<span key={championName}>{" " + tag + " "}</span>
 						))}{" "}
 						champion in League of Legends
 					</span>
@@ -59,8 +60,8 @@ export default async function ChampionPage({
 						</span>
 					</div>
 
-					{res.data[championName].spells.map((spell: any) => (
-						<div className="flex flex-col items-center mt-4">
+					{res.data[championName].spells.map((spell: any, index: number) => (
+						<div key={spell.id} className="flex flex-col items-center mt-4">
 							<Image
 								className="rounded-sm border border-itemBorder"
 								src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/spell/${spell.image.full}`}
@@ -69,7 +70,7 @@ export default async function ChampionPage({
 								alt=""
 							/>
 							<span className="relative -top-2 border border-champBorder rounded-sm bg-champBG px-1 text-sm">
-								{spell.id.charAt(spell.id.length - 1)}
+								{icons[index]}
 							</span>
 						</div>
 					))}
@@ -98,8 +99,11 @@ export default async function ChampionPage({
 					)}
 				</div>
 			</div>
-			{res.data[championName].spells.map((spell: any) => (
-				<div className="p-8 w-full border-l border-r border-b border-champBorder bg-champBG">
+			{res.data[championName].spells.map((spell: any, index: number) => (
+				<div
+					key={spell.id}
+					className="p-8 w-full border-l border-r border-b border-champBorder bg-champBG"
+				>
 					<div className="flex flex-row">
 						<Image
 							className="rounded-sm border border-itemBorder"
@@ -112,9 +116,7 @@ export default async function ChampionPage({
 							<h2>{spell.name}</h2>
 						</div>
 						<div className="whitespace-nowrap text-white text-xl">
-							<h2>{`${championName}'s ${spell.id.charAt(
-								spell.id.length - 1
-							)}`}</h2>
+							<h2>{`${championName}'s ${icons[index]}`}</h2>
 						</div>
 					</div>
 					<div className="mt-10 text-white">
