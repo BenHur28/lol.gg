@@ -26,7 +26,7 @@ export default async function page({
 	const matchHistory = getMatchHistory(summonerName, region);
 	const data = await summoner;
 	const matches = await matchHistory;
-	// console.log(matches);
+	console.log(matches);
 	const ranked_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "RANKED_SOLO_5x5"
 	);
@@ -81,7 +81,7 @@ export default async function page({
 				</div>
 				<div className="col-span-2 text-xl font-semibold p-4 bg-[#11112a] rounded-md">
 					{matches.map((match: any, index: number) => (
-						<div key={index}>{match}</div>
+						<div key={index}>{match.metadata.matchId}</div>
 					))}
 				</div>
 			</div>

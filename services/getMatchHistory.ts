@@ -2,7 +2,7 @@ export default async function getMatchHistory(
 	summonerName: string,
 	region: string
 ) {
-	const matches: Response[] = [];
+	const matches: any[] = [];
 	const summonerIdResponse = await fetch(
 		`https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.DATA_API_KEY}`
 	);
@@ -20,11 +20,10 @@ export default async function getMatchHistory(
 					`https://americas.api.riotgames.com/lol/match/v5/matches/${match}?api_key=${process.env.DATA_API_KEY}`
 				);
 				const m = await res.json();
-				console.log(m);
 				matches.push(m);
 			})
 		);
 	}
-	getMatches();
+	await getMatches();
 	return matches;
 }
