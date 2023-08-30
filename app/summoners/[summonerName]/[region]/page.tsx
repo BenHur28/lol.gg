@@ -26,15 +26,13 @@ export default async function page({
 	const matchHistory = getMatchHistory(summonerName, region);
 	const data = await summoner;
 	const matches = await matchHistory;
+	// console.log(matches);
 	const ranked_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "RANKED_SOLO_5x5"
 	);
 	const normal_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "CHERRY"
 	);
-	console.log(data);
-	console.log(ranked_data);
-	console.log(matchHistory);
 	return (
 		<div className="pt-40 mb-10 text-white">
 			<div className="flex flex-col items-center">
