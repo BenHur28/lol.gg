@@ -89,12 +89,12 @@ export default async function page({
 						<div
 							key={index}
 							className={cn(
-								"w-full m-2 p-3 rounded-md",
+								"w-full mt-2 p-3 rounded-md",
 								match.info.participants
 									.filter((player: any) => player.puuid == data[2])
 									.filter((p: any) => p.puuid == data[2])[0].win == true
-									? "bg-blue-800"
-									: "bg-red-800"
+									? "bg-[#22397c]"
+									: "bg-[#53263e]"
 							)}
 						>
 							{match.metadata.matchId}
