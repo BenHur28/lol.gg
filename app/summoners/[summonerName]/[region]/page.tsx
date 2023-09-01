@@ -15,7 +15,7 @@ type Props = {
 export async function generateMetadata({ params: { summonerName } }: Props) {
 	const name = summonerName.charAt(0).toUpperCase() + summonerName.slice(1);
 	return {
-		title: `${name}'s Stats`,
+		title: `${name.replace(/%20/g, " ")}'s Stats`,
 		description: `Summoner page for ${name}`,
 	};
 }
@@ -59,7 +59,9 @@ export default async function page({
 						alt=""
 					/>
 					<div className="flex flex-col ml-4 justify-between">
-						<h1 className=" text-3xl font-semibold">{summonerName}</h1>
+						<h1 className=" text-3xl font-semibold">
+							{summonerName.replace(/%20/g, " ")}
+						</h1>
 						<Button className="bg-blue-500">Update</Button>
 					</div>
 				</div>
