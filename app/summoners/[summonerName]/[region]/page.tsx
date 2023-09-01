@@ -31,12 +31,18 @@ export default async function page({
 	const ranked_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "RANKED_SOLO_5x5"
 	);
-	const rank = ranks.filter((rank) => rank.label == ranked_data[0].tier)[0]
-		.value;
+	const ranked_flex_data = data[0].filter(
+		(d: { queueType: string }) => d.queueType == "RANKED_FLEX_SR"
+	);
 	const normal_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "CHERRY"
 	);
-	// console.log(matches[1].info.participants);
+	const rank = ranks.filter((rank) => rank.label == ranked_data[0].tier)[0]
+		.value;
+	const flex_rank = ranks.filter(
+		(rank) => rank.label == ranked_flex_data[0].tier
+	)[0].value;
+	console.log(ranked_flex_data);
 	return (
 		<div className="pt-40 mb-10 text-white">
 			<div className="flex flex-col items-center">
@@ -61,25 +67,54 @@ export default async function page({
 						<div className="flex justify-between mt-2">
 							{rank && <Image src={rank} alt="" height={40} width={40}></Image>}
 							<div className="flex flex-col">
-								<p className="text-xl font-bold">Diamond 2</p>
-								<span>99 LP</span>
+								<p className="text-xl font-bold">
+									{ranked_data[0].tier} {ranked_data[0].rank}
+								</p>
+								<span className="text-[#cddcfe] text-sm">
+									{ranked_data[0].leaguePoints} LP
+								</span>
 							</div>
-							<div className="flex flex-col">
-								<span className="text-end">5W 5L</span>
-								<span>50% win rate</span>
+							<div className="flex flex-col justify-end">
+								<span className="text-end text-[#cddcfe] text-sm">
+									{ranked_data[0].wins}W {ranked_data[0].losses}L
+								</span>
+								<span className="text-end text-[#cddcfe] text-sm">
+									{Math.round(
+										(ranked_data[0].wins /
+											(ranked_data[0].wins + ranked_data[0].losses)) *
+											100
+									)}
+									% Win Rate
+								</span>
 							</div>
 						</div>
 					</div>
 					<div className="bg-matchHistory rounded-md mt-4 px-4 py-2">
 						<h2 className="text-md font-semibold">Ranked Flex</h2>
 						<div className="flex justify-between mt-2">
+							{flex_rank && (
+								<Image src={flex_rank} alt="" height={40} width={40}></Image>
+							)}
 							<div className="flex flex-col">
-								<p className="text-xl font-bold">Diamond 2</p>
-								<span>99 LP</span>
+								<p className="text-xl font-bold">
+									{ranked_flex_data[0].tier} {ranked_flex_data[0].rank}
+								</p>
+								<span className="text-[#cddcfe] text-sm">
+									{ranked_flex_data[0].leaguePoints} LP
+								</span>
 							</div>
-							<div className="flex flex-col">
-								<span className="text-end">5W 5L</span>
-								<span>50% win rate</span>
+							<div className="flex flex-col justify-end">
+								<span className="text-end text-[#cddcfe] text-sm">
+									{ranked_flex_data[0].wins}W {ranked_flex_data[0].losses}L
+								</span>
+								<span className="text-end text-[#cddcfe] text-sm">
+									{Math.round(
+										(ranked_flex_data[0].wins /
+											(ranked_flex_data[0].wins + ranked_flex_data[0].losses)) *
+											100
+									)}
+									% Win Rate
+								</span>
 							</div>
 						</div>
 					</div>
