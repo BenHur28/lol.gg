@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import getMatchHistory from "@/services/getMatchHistory";
 import getSummoner from "@/services/getSummoner";
 import Image from "next/image";
+import { ranks } from "@/lib/data";
 
 type Props = {
 	params: {
@@ -30,10 +31,12 @@ export default async function page({
 	const ranked_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "RANKED_SOLO_5x5"
 	);
+	const rank = ranks.filter((rank) => rank.label == ranked_data[0].tier)[0]
+		.value;
 	const normal_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "CHERRY"
 	);
-	console.log(matches[1].info.participants);
+	// console.log(matches[1].info.participants);
 	return (
 		<div className="pt-40 mb-10 text-white">
 			<div className="flex flex-col items-center">
@@ -56,7 +59,7 @@ export default async function page({
 					<div className="bg-matchHistory rounded-md px-4 py-2">
 						<h2 className="text-md font-semibold">Ranked Solo</h2>
 						<div className="flex justify-between mt-2">
-							<Image src="/diamond.webp" alt="" height={40} width={40}></Image>
+							{rank && <Image src={rank} alt="" height={40} width={40}></Image>}
 							<div className="flex flex-col">
 								<p className="text-xl font-bold">Diamond 2</p>
 								<span>99 LP</span>

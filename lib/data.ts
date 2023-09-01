@@ -74,3 +74,46 @@ export const regions = [
 		label: "VN",
 	},
 ];
+
+export const ranks = [
+	{
+		label: "IRON",
+		value: "/iron.webp",
+	},
+	{
+		label: "BRONZE",
+		value: "/bronze.webp",
+	},
+	{
+		label: "SILVER",
+		value: "/silver.webp",
+	},
+	{
+		label: "GOLD",
+		value: "/gold.webp",
+	},
+	{
+		label: "EMERALD",
+		value: "/emerald.webp",
+	},
+	{
+		label: "PLATINUM",
+		value: "/platinum.webp",
+	},
+	{
+		label: "DIAMOND",
+		value: "/diamond.webp",
+	},
+	{
+		label: "MASTER",
+		value: "/master.webp",
+	},
+	{
+		label: "GRANDMASTER",
+		value: "/grandmaster.webp",
+	},
+	{
+		label: "CHALLENGER",
+		value: "/challenger.webp",
+	},
+];
