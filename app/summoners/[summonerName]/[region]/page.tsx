@@ -33,11 +33,7 @@ export default async function page({
 	const normal_data = data[0].filter(
 		(d: { queueType: string }) => d.queueType == "CHERRY"
 	);
-	console.log(
-		matches[1].info.participants
-			.filter((player: any) => player.puuid == data[2])
-			.filter((p: any) => p.puuid == data[2])[0].win
-	);
+	console.log(matches[1].info.participants);
 	return (
 		<div className="pt-40 mb-10 text-white">
 			<div className="flex flex-col items-center">
@@ -60,6 +56,7 @@ export default async function page({
 					<div className="bg-matchHistory rounded-md px-4 py-2">
 						<h2 className="text-md font-semibold">Ranked Solo</h2>
 						<div className="flex justify-between mt-2">
+							<Image src="/diamond.webp" alt="" height={40} width={40}></Image>
 							<div className="flex flex-col">
 								<p className="text-xl font-bold">Diamond 2</p>
 								<span>99 LP</span>
