@@ -4,6 +4,7 @@ import getMatchHistory from "@/services/getMatchHistory";
 import getSummoner from "@/services/getSummoner";
 import Image from "next/image";
 import { ranks } from "@/lib/data";
+import Summoner from "./components/summoner";
 
 type Props = {
 	params: {
@@ -45,27 +46,10 @@ export default async function page({
 		ranked_flex_data.length > 0
 			? ranks.filter((rank) => rank.label == ranked_flex_data[0].tier)[0].value
 			: "";
-	console.log(ranked_flex_data);
-	console.log(ranked_data);
+
 	return (
 		<div className="pt-40 mb-10 text-white">
-			<div className="flex flex-col items-center">
-				<div className="flex w-1/2">
-					<Image
-						className="border border-itemBorder"
-						height={100}
-						width={100}
-						src={`http://ddragon.leagueoflegends.com/cdn/13.15.1/img/profileicon/${data[1]}.png`}
-						alt=""
-					/>
-					<div className="flex flex-col ml-4 justify-between">
-						<h1 className=" text-3xl font-semibold">
-							{summonerName.replace(/%20/g, " ")}
-						</h1>
-						<Button className="bg-blue-500">Update</Button>
-					</div>
-				</div>
-			</div>
+			<Summoner name={summonerName} image={data[1]}></Summoner>
 			<div className="mx-auto w-1/2 grid grid-cols-3 gap-4 mt-20">
 				<div className="col-span-1  ">
 					<div className="bg-matchHistory rounded-md px-4 py-2">
