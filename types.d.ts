@@ -37,3 +37,9 @@ type Item = {
 	};
 	depth: number;
 };
+
+type Game = {
+	gameId?: string;
+	participants?: string[];
+	playerlist?: string[];
+};
