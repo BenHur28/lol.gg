@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils";
+import { ranks } from "@/lib/data";
 import getMatchHistory from "@/services/getMatchHistory";
 import getSummoner from "@/services/getSummoner";
-import { ranks } from "@/lib/data";
 import Summoner from "./components/summoner";
 import RankedSolo from "./components/ranked-solo";
 import RankedFlex from "./components/ranked-flex";
+import Matches from "./components/matches";
 
 type Props = {
 	params: {
@@ -56,21 +56,7 @@ export default async function page({
 					<RankedFlex data={ranked_flex_data} rank={flex_rank} />
 				</div>
 				<div className="col-span-2 text-xl font-semibold p-4 bg-[#11112a] rounded-md">
-					{matches.map((match: any, index: number) => (
-						<div
-							key={index}
-							className={cn(
-								"w-full mt-2 p-3 rounded-md",
-								match.info.participants
-									.filter((player: any) => player.puuid == data[2])
-									.filter((p: any) => p.puuid == data[2])[0].win == true
-									? "bg-[#22397c]"
-									: "bg-[#53263e]"
-							)}
-						>
-							{match.metadata.matchId}
-						</div>
-					))}
+					<Matches matches={matches} matchId={data[2]}></Matches>
 				</div>
 			</div>
 		</div>
