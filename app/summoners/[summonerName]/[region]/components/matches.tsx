@@ -23,7 +23,35 @@ const Matches = ({ matches, puuid, name }: MatchesProps) => {
 					)}
 				>
 					<div className="flex w-full justify-end space-x-2">
-						<div className="">{}</div>
+						<div className="flex flex-col items-center">
+							{match.queueId == 400 ? (
+								<p className="text-sm">Normal Draft</p>
+							) : (
+								""
+							)}
+							{match.queueId == 420 ? (
+								<p className="text-sm">Ranked Draft</p>
+							) : (
+								""
+							)}
+							<p>
+								{match.info.participants
+									.filter((player: any) => player.puuid == puuid)
+									.filter((p: any) => p.puuid == puuid)[0].win == true ? (
+									<span className="text-sm text-[#3273fa]">WIN </span>
+								) : (
+									<span className="text-sm text-[#ff4e50]">LOSE </span>
+								)}
+								<span className="text-sm text-[#cddcfe]">
+									{""}
+									{Math.round(match.info.gameDuration / 60)}
+									{":"}
+									{match.info.gameDuration % 60 < 10
+										? "0" + (match.info.gameDuration % 60)
+										: match.info.gameDuration % 60}{" "}
+								</span>
+							</p>
+						</div>
 						<div className="flex w-1/5 text-left items-center">
 							<div className="mr-1">
 								{match.team1.team1championlist.map((champ: string) => (
