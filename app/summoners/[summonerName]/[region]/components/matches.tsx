@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 type MatchesProps = {
 	matches: Game[];
@@ -21,19 +22,57 @@ const Matches = ({ matches, matchId }: MatchesProps) => {
 					)}
 				>
 					<div className="flex w-full justify-end space-x-2">
-						<div className="w-1/5 text-left">
-							{match.team1playerlist.map((player: string, index: number) => (
-								<p className="text-xs text-[#cddcfe]" key={index}>
-									{player}
-								</p>
-							))}
+						<div className="flex w-1/5 text-left items-center">
+							<div className="mr-1">
+								{match.team1.team1championlist.map((champ: string) => (
+									<p className="mb-1" key={champ}>
+										<Image
+											height={16}
+											width={16}
+											src={`https://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${champ}.png`}
+											alt=""
+										/>
+									</p>
+								))}
+							</div>
+							<div>
+								{match.team1.team1playerlist.map(
+									(player: string, index: number) => (
+										<p
+											className="text-xs text-[#cddcfe] whitespace-nowrap mb-1"
+											key={index}
+										>
+											{player}
+										</p>
+									)
+								)}
+							</div>
 						</div>
-						<div className="w-1/5 text-left">
-							{match.team2playerlist.map((player: string, index: number) => (
-								<p className="text-xs text-[#cddcfe]" key={index}>
-									{player}
-								</p>
-							))}
+						<div className="flex w-1/5 text-left items-center">
+							<div className="mr-1">
+								{match.team2.team2championlist.map((champ: string) => (
+									<p className="mb-1" key={champ}>
+										<Image
+											height={16}
+											width={16}
+											src={`https://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${champ}.png`}
+											alt=""
+										/>
+									</p>
+								))}
+							</div>
+							<div>
+								{match.team2.team2playerlist.map(
+									(player: string, index: number) => (
+										<p
+											className="text-xs text-[#cddcfe] whitespace-nowrap mb-1"
+											key={index}
+										>
+											{player}
+										</p>
+									)
+								)}
+							</div>
 						</div>
 					</div>
 				</div>

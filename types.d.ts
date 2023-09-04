@@ -41,10 +41,21 @@ type Item = {
 type Game = {
 	gameId: string;
 	participants: string[];
-	team1playerlist: string[];
-	team2playerlist: string[];
+	team1: {
+		team1playerlist: string[];
+		team1championlist: string[];
+	};
+	team2: {
+		team2playerlist: string[];
+		team2championlist: string[];
+	};
 	queueId: number;
 	info: {
 		participants: any[];
 	};
+};
+
+type teamplayer = {
+	champion: string;
+	name: string;
 };
