@@ -11,8 +11,24 @@ export default async function getMatchHistory(
 		`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=2&api_key=${process.env.DATA_API_KEY}`
 	);
 
-	const matches: any[] = [];
 	const data = await response.json();
+
+	const games: Game[] = [];
+
+	data.map((x: string) => {
+		let game: Game = {
+			gameId: "",
+			participants: [],
+			playerlist: [],
+			queueId: 0,
+			info: {
+				participants: [],
+			},
+		};
+		games.push(game);
+	});
+
+	const matches: any[] = [];
 	async function getMatches() {
 		await Promise.all(
 			data.map(async (match: any) => {
@@ -26,15 +42,10 @@ export default async function getMatchHistory(
 	}
 	await getMatches();
 
-	const games: Game[] = [];
-	matches.map((match) => {
-		let game: Game = {
-			participants: [],
-		};
-		game.gameId = match.metadata.matchId;
-		game.participants = match.metadata.participants;
-		game.playerlist = [];
-		games.push(game);
+	matches.map((match, index) => {
+		games[index].gameId = match.metadata.matchId;
+		games[index].participants = match.metadata.participants;
+		games[index].info.participants = match.info.participants;
 	});
 
 	const getPlayerNames = async () => {
@@ -46,13 +57,13 @@ export default async function getMatchHistory(
 							`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${player}?api_key=${process.env.DATA_API_KEY}`
 						);
 						const p = await res.json();
-						game.playerlist?.push(p.name);
+						game.playerlist.push(p.name);
 					})
 				);
 			})
 		);
 	};
-
 	await getPlayerNames();
-	return matches;
+	console.log(games);
+	return games;
 }

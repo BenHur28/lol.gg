@@ -3,12 +3,13 @@ import { cn } from "@/lib/utils";
 type MatchesProps = {
 	matches: any[];
 	matchId: string;
+	games: Game[];
 };
 
-const Matches = ({ matches, matchId }: MatchesProps) => {
+const Matches = ({ matches, matchId, games }: MatchesProps) => {
 	return (
 		<>
-			{matches.map((match: any, index: number) => (
+			{matches[0].map((match: any, index: number) => (
 				<div
 					key={index}
 					className={cn(
@@ -19,9 +20,7 @@ const Matches = ({ matches, matchId }: MatchesProps) => {
 							? "bg-[#22397c]"
 							: "bg-[#53263e]"
 					)}
-				>
-					{match.metadata.matchId}
-				</div>
+				></div>
 			))}
 		</>
 	);

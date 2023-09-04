@@ -46,6 +46,7 @@ export default async function page({
 		ranked_flex_data.length > 0
 			? ranks.filter((rank) => rank.label == ranked_flex_data[0].tier)[0].value
 			: "";
+
 	return (
 		<div className="pt-40 mb-10 text-white">
 			<Summoner name={summonerName} image={data[1]}></Summoner>
@@ -55,7 +56,7 @@ export default async function page({
 					<RankedFlex data={ranked_flex_data} rank={flex_rank} />
 				</div>
 				<div className="col-span-2 text-xl font-semibold p-4 bg-[#11112a] rounded-md">
-					<Matches matches={matches} matchId={data[2]}></Matches>
+					<Matches matches={matches} matchId={data[2]} games={matches[1]} />
 				</div>
 			</div>
 		</div>
