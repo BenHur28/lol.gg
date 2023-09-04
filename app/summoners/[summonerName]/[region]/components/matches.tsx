@@ -1,15 +1,14 @@
 import { cn } from "@/lib/utils";
 
 type MatchesProps = {
-	matches: any[];
+	matches: Game[];
 	matchId: string;
-	games: Game[];
 };
 
-const Matches = ({ matches, matchId, games }: MatchesProps) => {
+const Matches = ({ matches, matchId }: MatchesProps) => {
 	return (
 		<>
-			{matches[0].map((match: any, index: number) => (
+			{matches.map((match: any, index: number) => (
 				<div
 					key={index}
 					className={cn(
@@ -20,7 +19,20 @@ const Matches = ({ matches, matchId, games }: MatchesProps) => {
 							? "bg-[#22397c]"
 							: "bg-[#53263e]"
 					)}
-				></div>
+				>
+					<div className="flex w-full justify-end">
+						<div>
+							{match.team1playerlist.map((player: string, index: number) => (
+								<p key={index}>{player}</p>
+							))}
+						</div>
+						<div>
+							{match.team2playerlist.map((player: string, index: number) => (
+								<p key={index}>{player}</p>
+							))}
+						</div>
+					</div>
+				</div>
 			))}
 		</>
 	);

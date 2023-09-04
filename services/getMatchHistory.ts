@@ -19,7 +19,8 @@ export default async function getMatchHistory(
 		let game: Game = {
 			gameId: "",
 			participants: [],
-			playerlist: [],
+			team1playerlist: [],
+			team2playerlist: [],
 			queueId: 0,
 			info: {
 				participants: [],
@@ -57,7 +58,11 @@ export default async function getMatchHistory(
 							`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${player}?api_key=${process.env.DATA_API_KEY}`
 						);
 						const p = await res.json();
-						game.playerlist.push(p.name);
+						if (game.team1playerlist.length < 5) {
+							game.team1playerlist.push(p.name);
+						} else {
+							game.team2playerlist.push(p.name);
+						}
 					})
 				);
 			})
