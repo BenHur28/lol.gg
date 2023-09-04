@@ -51,6 +51,7 @@ type Game = {
 	};
 	queueId: number;
 	info: {
+		gameDuration: number;
 		participants: any[];
 	};
 };

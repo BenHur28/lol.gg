@@ -29,6 +29,7 @@ export default async function getMatchHistory(
 			},
 			queueId: 0,
 			info: {
+				gameDuration: 0,
 				participants: [],
 			},
 		};
@@ -53,6 +54,7 @@ export default async function getMatchHistory(
 		games[index].gameId = match.metadata.matchId;
 		games[index].participants = match.metadata.participants;
 		games[index].info.participants = match.info.participants;
+		games[index].info.gameDuration = match.info.gameDuration;
 		games[index].info.participants.map((player) => {
 			if (games[index].team1.team1championlist.length < 5) {
 				games[index].team1.team1championlist.push(player.championName);

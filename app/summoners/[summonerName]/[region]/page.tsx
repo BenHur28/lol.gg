@@ -56,7 +56,7 @@ export default async function page({
 					<RankedFlex data={ranked_flex_data} rank={flex_rank} />
 				</div>
 				<div className="col-span-2 text-xl font-semibold p-4 bg-[#11112a] rounded-md">
-					<Matches matches={matches} matchId={data[2]} />
+					<Matches matches={matches} puuid={data[2]} name={summonerName} />
 				</div>
 			</div>
 		</div>
