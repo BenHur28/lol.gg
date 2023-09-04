@@ -20,15 +20,19 @@ const Matches = ({ matches, matchId }: MatchesProps) => {
 							: "bg-[#53263e]"
 					)}
 				>
-					<div className="flex w-full justify-end">
-						<div>
+					<div className="flex w-full justify-end space-x-2">
+						<div className="w-1/5 text-left">
 							{match.team1playerlist.map((player: string, index: number) => (
-								<p key={index}>{player}</p>
+								<p className="text-xs text-[#cddcfe]" key={index}>
+									{player}
+								</p>
 							))}
 						</div>
-						<div>
+						<div className="w-1/5 text-left">
 							{match.team2playerlist.map((player: string, index: number) => (
-								<p key={index}>{player}</p>
+								<p className="text-xs text-[#cddcfe]" key={index}>
+									{player}
+								</p>
 							))}
 						</div>
 					</div>
