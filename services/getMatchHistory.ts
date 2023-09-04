@@ -8,7 +8,7 @@ export default async function getMatchHistory(
 	const { puuid } = await summonerIdResponse.json();
 
 	const response = await fetch(
-		`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=1&count=1&api_key=${process.env.DATA_API_KEY}`
+		`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=2&api_key=${process.env.DATA_API_KEY}`
 	);
 
 	const matches: any[] = [];
@@ -28,30 +28,31 @@ export default async function getMatchHistory(
 
 	const games: Game[] = [];
 	matches.map((match) => {
-		let game: Game = {};
+		let game: Game = {
+			participants: [],
+		};
 		game.gameId = match.metadata.matchId;
 		game.participants = match.metadata.participants;
 		game.playerlist = [];
 		games.push(game);
 	});
 
-	async function getParticipants() {
+	const getPlayerNames = async () => {
 		await Promise.all(
-			games.map((game: any) => {
-				game.participants.map(async (playerId: string) => {
-					const playerlist: string[] = [];
-					const res = await fetch(
-						`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${playerId}?api_key=${process.env.DATA_API_KEY}`
-					);
-					const p = await res.json();
-					playerlist.push(p.name);
-					game.playerlist = playerlist;
-				});
+			games.map(async (game) => {
+				await Promise.all(
+					game.participants.map(async (player) => {
+						const res = await fetch(
+							`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${player}?api_key=${process.env.DATA_API_KEY}`
+						);
+						const p = await res.json();
+						game.playerlist?.push(p.name);
+					})
+				);
 			})
 		);
-	}
+	};
 
-	await getParticipants();
-	console.log(games);
+	await getPlayerNames();
 	return matches;
 }

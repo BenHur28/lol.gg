@@ -40,6 +40,6 @@ type Item = {
 
 type Game = {
 	gameId?: string;
-	participants?: string[];
-	playerlist?: string[];
+	participants: string[];
+	playerlist?: any[];
 };
