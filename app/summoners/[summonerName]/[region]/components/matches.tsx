@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import Team from "./team";
 import Gameinfo from "./gameinfo";
+import Playerstats from "./player-stats";
 
 type MatchesProps = {
 	matches: Game[];
@@ -9,6 +10,10 @@ type MatchesProps = {
 };
 
 const Matches = ({ matches, puuid, name }: MatchesProps) => {
+	const currentPlayer = matches[0].info.participants.filter(
+		(player: any) => player.puuid == puuid
+	);
+	console.log(currentPlayer);
 	return (
 		<>
 			{matches.map((match: any, index: number) => (
@@ -25,6 +30,11 @@ const Matches = ({ matches, puuid, name }: MatchesProps) => {
 				>
 					<div className="flex w-full justify-end space-x-2">
 						<Gameinfo game={match} puuid={puuid} />
+						<Playerstats
+							player={match.info.participants.filter(
+								(player: any) => player.puuid == puuid
+							)}
+						/>
 						<div className="flex w-1/5 text-left items-center">
 							<Team
 								name={name}
