@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Team from "./team";
 
 type MatchesProps = {
 	matches: Game[];
@@ -53,62 +54,18 @@ const Matches = ({ matches, puuid, name }: MatchesProps) => {
 							</p>
 						</div>
 						<div className="flex w-1/5 text-left items-center">
-							<div className="mr-1">
-								{match.team1.team1championlist.map((champ: string) => (
-									<p className="mb-1" key={champ}>
-										<Image
-											height={16}
-											width={16}
-											src={`https://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${champ}.png`}
-											alt=""
-										/>
-									</p>
-								))}
-							</div>
-							<div>
-								{match.team1.team1playerlist.map(
-									(player: string, index: number) => (
-										<p
-											className={cn(
-												"text-xs text-[#cddcfe] whitespace-nowrap mb-1",
-												player == name ? "font-bold text-white" : ""
-											)}
-											key={index}
-										>
-											{player}
-										</p>
-									)
-								)}
-							</div>
+							<Team
+								name={name}
+								playerlist={match.team1.team1playerlist}
+								championlist={match.team1.team1championlist}
+							/>
 						</div>
 						<div className="flex w-1/5 text-left items-center">
-							<div className="mr-1">
-								{match.team2.team2championlist.map((champ: string) => (
-									<p className="mb-1" key={champ}>
-										<Image
-											height={16}
-											width={16}
-											src={`https://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${champ}.png`}
-											alt=""
-										/>
-									</p>
-								))}
-							</div>
-							<div>
-								{match.team2.team2playerlist.map(
-									(player: string, index: number) => (
-										<p
-											className={cn(
-												"text-xs text-[#cddcfe] whitespace-nowrap mb-1",
-												player == name ? "font-bold text-white" : ""
-											)}
-											key={index}
-										>
-											{player}
-										</p>
-									)
-								)}
-							</div>
+							<Team
+								name={name}
+								playerlist={match.team2.team2playerlist}
+								championlist={match.team2.team2championlist}
+							/>
 						</div>
 					</div>
 				</div>
