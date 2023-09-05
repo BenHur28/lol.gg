@@ -28,13 +28,14 @@ const Matches = ({ matches, puuid, name }: MatchesProps) => {
 							: "bg-[#53263e]"
 					)}
 				>
-					<div className="flex w-full justify-end space-x-2">
+					<div className="flex w-full justify-between space-x-2">
 						<Gameinfo game={match} puuid={puuid} />
 						<Playerstats
 							player={match.info.participants.filter(
 								(player: any) => player.puuid == puuid
 							)}
 						/>
+						<Playeritems />
 						<div className="flex w-1/5 text-left items-center">
 							<Team
 								name={name}
