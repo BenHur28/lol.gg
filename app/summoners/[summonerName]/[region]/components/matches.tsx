@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import Team from "./team";
 import Gameinfo from "./gameinfo";
 import Playerstats from "./player-stats";
+import Playeritems from "./player-items";
 
 type MatchesProps = {
 	matches: Game[];
@@ -35,7 +36,11 @@ const Matches = ({ matches, puuid, name }: MatchesProps) => {
 								(player: any) => player.puuid == puuid
 							)}
 						/>
-						<Playeritems />
+						<Playeritems
+							player={match.info.participants.filter(
+								(player: any) => player.puuid == puuid
+							)}
+						/>
 						<div className="flex w-1/5 text-left items-center">
 							<Team
 								name={name}

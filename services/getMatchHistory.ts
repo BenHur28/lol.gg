@@ -8,7 +8,7 @@ export default async function getMatchHistory(
 	const { puuid } = await summonerIdResponse.json();
 
 	const response = await fetch(
-		`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=2&api_key=${process.env.DATA_API_KEY}`
+		`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=1&count=2&api_key=${process.env.DATA_API_KEY}`
 	);
 
 	const data = await response.json();
