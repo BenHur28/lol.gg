@@ -16,6 +16,10 @@ module.exports = {
 			},
 		},
 		extend: {
+			gridTemplateColumns: {
+				16: "repeat(16, minmax(0,1fr))",
+				20: "repeat(20, minmax(0,1fr))",
+			},
 			colors: {
 				nav: "#070720",
 				side: "#0D0D28",
@@ -35,10 +39,6 @@ module.exports = {
 				ring: "hsl(var(--ring))",
 				background: "hsl(var(--background))",
 				foreground: "hsl(var(--foreground))",
-				gridTemplateColumns: {
-					16: "repeat(16, minmax(0,1fr))",
-					20: "repeat(20, minmax(0,1fr))",
-				},
 				backgroundImage: {
 					"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
 					"gradient-conic":

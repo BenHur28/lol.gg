@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export async function generateMetadata() {
 	return {
-		title: "Champions list",
+		title: "Champion list",
 		description: "Browse all champions.",
 	};
 }
