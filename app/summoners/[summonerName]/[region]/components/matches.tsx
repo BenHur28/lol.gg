@@ -11,10 +11,6 @@ type MatchesProps = {
 };
 
 const Matches = ({ matches, puuid, name }: MatchesProps) => {
-	const currentPlayer = matches[0].info.participants.filter(
-		(player: any) => player.puuid == puuid
-	);
-	console.log(currentPlayer);
 	return (
 		<>
 			{matches.map((match: any, index: number) => (

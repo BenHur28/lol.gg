@@ -17,7 +17,6 @@ const Playeritems = ({ player }: PlayeritemsProps) => {
 		items.push(playerData.item5);
 	};
 	pushItems();
-	console.log(items);
 	return (
 		<div className="flex justify-center my-auto pb-8">
 			<div className="grid grid-cols-3 h-0 gap-0.5">

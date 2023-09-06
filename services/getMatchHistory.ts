@@ -85,6 +85,5 @@ export default async function getMatchHistory(
 		);
 	};
 	await getPlayerNames();
-	console.log(games);
 	return games;
 }
