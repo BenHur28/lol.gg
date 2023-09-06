@@ -26,7 +26,13 @@ const Matches = ({ matches, puuid, name }: MatchesProps) => {
 					)}
 				>
 					<div className="flex w-full items-center justify-between space-x-2">
-						<Gameinfo game={match} puuid={puuid} />
+						<Gameinfo
+							game={match}
+							puuid={puuid}
+							player={match.info.participants.filter(
+								(player: any) => player.puuid == puuid
+							)}
+						/>
 						<Playerstats
 							player={match.info.participants.filter(
 								(player: any) => player.puuid == puuid

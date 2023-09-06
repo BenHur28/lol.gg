@@ -1,4 +1,3 @@
-import { Divide } from "lucide-react";
 import Image from "next/image";
 
 type PlayeritemsProps = {
