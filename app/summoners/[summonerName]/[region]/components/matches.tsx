@@ -43,14 +43,14 @@ const Matches = ({ matches, puuid, name }: MatchesProps) => {
 								(player: any) => player.puuid == puuid
 							)}
 						/>
-						<div className="flex text-left items-center shrink-0 max-[540px]:hidden">
+						<div className="flex text-left items-center shrink-0 max-[583px]:hidden">
 							<Team
 								name={name}
 								playerlist={match.team1.team1playerlist}
 								championlist={match.team1.team1championlist}
 							/>
 						</div>
-						<div className="flex text-left items-center shrink-0 max-[540px]:hidden">
+						<div className="flex text-left items-center shrink-0 max-[583px]:hidden">
 							<Team
 								name={name}
 								playerlist={match.team2.team2playerlist}

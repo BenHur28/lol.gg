@@ -17,10 +17,10 @@ const RankedSolo = ({ data, rank }: RankedSoloProps) => {
 			{data.length > 0 && (
 				<>
 					<h2 className="text-md font-semibold">Ranked Solo</h2>
-					<div className="flex justify-between mt-2">
+					<div className="flex max-[571px]:flex-col justify-between mt-2">
 						{rank && <Image src={rank} alt="" height={40} width={40}></Image>}
 						<div className="flex flex-col">
-							<p className="text-xl font-bold">
+							<p className="text-xl font-bold whitespace-nowrap">
 								{data[0].tier} {data[0].rank}
 							</p>
 							<span className="text-[#cddcfe] text-sm">
@@ -28,10 +28,10 @@ const RankedSolo = ({ data, rank }: RankedSoloProps) => {
 							</span>
 						</div>
 						<div className="flex flex-col justify-end">
-							<span className="text-end text-[#cddcfe] text-sm">
+							<span className="min-[572px]:text-end text-[#cddcfe] text-sm">
 								{data[0].wins}W {data[0].losses}L
 							</span>
-							<span className="text-end text-[#cddcfe] text-sm">
+							<span className="min-[572px]:text-end text-[#cddcfe] text-sm whitespace-nowrap">
 								{Math.round(
 									(data[0].wins / (data[0].wins + data[0].losses)) * 100
 								)}

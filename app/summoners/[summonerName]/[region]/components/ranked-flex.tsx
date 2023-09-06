@@ -7,7 +7,7 @@ type RankedFlexProps = {
 
 const RankedFlex = ({ data, rank }: RankedFlexProps) => {
 	return (
-		<div className="bg-matchHistory rounded-md mt-4 px-4 py-2">
+		<div className="bg-matchHistory rounded-md px-4 py-2">
 			{data.length == 0 && (
 				<div className="flex justify-between items-center">
 					<h2 className="text-md font-semibold">Ranked Flex</h2>
@@ -17,7 +17,7 @@ const RankedFlex = ({ data, rank }: RankedFlexProps) => {
 			{data.length > 0 && (
 				<>
 					<h2 className="text-md font-semibold">Ranked Flex</h2>
-					<div className="flex justify-between mt-2">
+					<div className="flex max-[571px]:flex-col justify-between mt-2">
 						{rank && <Image src={rank} alt="" height={40} width={40}></Image>}
 						<div className="flex flex-col">
 							<p className="text-xl font-bold">
@@ -29,10 +29,10 @@ const RankedFlex = ({ data, rank }: RankedFlexProps) => {
 							</span>
 						</div>
 						<div className="flex flex-col justify-end">
-							<span className="text-end text-[#cddcfe] text-sm">
+							<span className="min-[572px]:text-end text-[#cddcfe] text-sm">
 								{data[0].wins}W {data[0].losses}L
 							</span>
-							<span className="text-end text-[#cddcfe] text-sm">
+							<span className="min-[572px]:text-end text-[#cddcfe] text-sm whitespace-nowrap">
 								{Math.round(
 									(data[0].wins / (data[0].wins + data[0].losses)) * 100
 								)}

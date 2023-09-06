@@ -50,12 +50,14 @@ export default async function page({
 	return (
 		<div className="pt-40 mb-10 text-white">
 			<Summoner name={summonerName} image={data[1]}></Summoner>
-			<div className="mx-auto gap-4 mt-20 lg:w-3/5 sm:w-5/6 grid grid-cols-3 max-[1355px]:grid-cols-1">
+			<div className="mx-auto gap-4 mt-20 min-[1167px]:w-1/2 min-[701px]:w-5/6 grid grid-cols-3 max-[1355px]:grid-cols-2">
 				<div className="col-span-1">
 					<RankedSolo data={ranked_data} rank={rank} />
+				</div>
+				<div className="col-span-1">
 					<RankedFlex data={ranked_flex_data} rank={flex_rank} />
 				</div>
-				<div className="col-span-2 text-xl font-semibold px-4 pb-4 pt-2 bg-[#11112a] rounded-md">
+				<div className="col-span-3 text-xl font-semibold px-4 pb-4 pt-2 bg-[#11112a] rounded-md">
 					<Matches matches={matches} puuid={data[2]} name={summonerName} />
 				</div>
 			</div>
