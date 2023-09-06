@@ -25,7 +25,7 @@ const Matches = ({ matches, puuid, name }: MatchesProps) => {
 							: "bg-[#53263e]"
 					)}
 				>
-					<div className="flex w-full items-center justify-between space-x-2">
+					<div className="flex w-full items-center justify-between space-x-2 ">
 						<Gameinfo
 							game={match}
 							puuid={puuid}
@@ -43,14 +43,14 @@ const Matches = ({ matches, puuid, name }: MatchesProps) => {
 								(player: any) => player.puuid == puuid
 							)}
 						/>
-						<div className="flex w-1/5 text-left items-center">
+						<div className="flex text-left items-center shrink-0 max-[540px]:hidden">
 							<Team
 								name={name}
 								playerlist={match.team1.team1playerlist}
 								championlist={match.team1.team1championlist}
 							/>
 						</div>
-						<div className="flex w-1/5 text-left items-center">
+						<div className="flex text-left items-center shrink-0 max-[540px]:hidden">
 							<Team
 								name={name}
 								playerlist={match.team2.team2playerlist}

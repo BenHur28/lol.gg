@@ -8,7 +8,7 @@ type SummonerProps = {
 
 const Summoner = ({ name, image }: SummonerProps) => {
 	return (
-		<div className="flex flex-col items-center">
+		<div className="flex lg:w-3/5 md:w-5/6 mx-auto justify-start">
 			<div className="flex w-1/2">
 				<Image
 					className="border border-itemBorder"

@@ -12,14 +12,14 @@ const Team = ({ playerlist, championlist, name }: TeamProps) => {
 		<>
 			<div className="mr-1">
 				{championlist.map((champ: string) => (
-					<p className="mb-1" key={champ}>
+					<div className="mb-1 " key={champ}>
 						<Image
 							height={16}
 							width={16}
 							src={`https://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${champ}.png`}
 							alt=""
 						/>
-					</p>
+					</div>
 				))}
 			</div>
 			<div>

@@ -38,7 +38,7 @@ export default function Sidebar() {
 		<div
 			onMouseEnter={onMouseEnter}
 			onMouseLeave={onMouseLeave}
-			className={`z-20 h-full relative hidden md:flex md:flex-col md:fixed transition-all duration-300 bg-side ${
+			className={`z-20 h-full relative hidden lg:flex lg:flex-col lg:fixed transition-all duration-300 bg-side ${
 				isExpanded ? "hover:w-60 z-0 " : "md:w-20 delay-150"
 			}`}
 		>

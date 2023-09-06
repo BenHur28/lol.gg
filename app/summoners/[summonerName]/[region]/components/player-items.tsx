@@ -17,11 +17,12 @@ const Playeritems = ({ player }: PlayeritemsProps) => {
 	};
 	pushItems();
 	return (
-		<div className="flex justify-center my-auto pb-8">
+		<div className="flex justify-center my-auto pb-8 shrink-0">
 			<div className="grid grid-cols-3 h-0 gap-0.5">
 				{items.map((item: string) =>
 					item != "0" ? (
 						<Image
+							className=""
 							key={item}
 							height={22}
 							width={22}
@@ -37,7 +38,7 @@ const Playeritems = ({ player }: PlayeritemsProps) => {
 				)}
 			</div>
 			<Image
-				className="self-start ml-0.5"
+				className="ml-0.5"
 				height={22}
 				width={22}
 				src={`https://ddragon.leagueoflegends.com/cdn/13.17.1/img/item/${playerData.item6}.png`}
