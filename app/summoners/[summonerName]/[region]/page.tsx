@@ -50,7 +50,7 @@ export default async function page({
 	return (
 		<div className="pt-40 mb-10 text-white">
 			<Summoner name={summonerName} image={data[1]}></Summoner>
-			<div className="mx-auto gap-4 mt-20 min-[1167px]:w-1/2 min-[701px]:w-5/6 grid grid-cols-3 max-[1355px]:grid-cols-2">
+			<div className="mx-auto gap-4 mt-20 min-[1167px]:w-1/2 min-[701px]:w-5/6 grid grid-cols-3 max-[1610px]:grid-cols-2">
 				<div className="col-span-1">
 					<RankedSolo data={ranked_data} rank={rank} />
 				</div>
