@@ -21,7 +21,7 @@ export default async function ChampionPage({
 	const championData = getChampionData(championName);
 	const res = await championData;
 	return (
-		<div className="flex flex-col pl-20 mx-auto w-1/2 pt-32 mb-20">
+		<div className="flex flex-col pl-20 mx-auto max-[1024px]:w-5/6 lg:w-3/5 pt-32 mb-20">
 			<div className="flex flex-row w-full items-top">
 				<Image
 					className="border border-champBorder"
@@ -88,7 +88,7 @@ export default async function ChampionPage({
 					<div className="flex flex-col ml-4 text-white text-xl w-full">
 						<h2>{res.data[championName].passive.name}</h2>
 					</div>
-					<div className="whitespace-nowrap text-white text-xl">
+					<div className="whitespace-nowrap text-white text-xl max-[691px]:hidden">
 						<h2>{`${championName}'s Passive`}</h2>
 					</div>
 				</div>
@@ -115,7 +115,7 @@ export default async function ChampionPage({
 						<div className="flex flex-col ml-4 text-white text-xl w-full">
 							<h2>{spell.name}</h2>
 						</div>
-						<div className="whitespace-nowrap text-white text-xl">
+						<div className="whitespace-nowrap text-white text-xl max-[691px]:hidden">
 							<h2>{`${championName}'s ${icons[index]}`}</h2>
 						</div>
 					</div>
