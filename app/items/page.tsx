@@ -32,7 +32,7 @@ export default async function ItemsPage() {
 		}
 	}
 	return (
-		<div className="flex flex-col items-center text-white w-7/12 mx-auto">
+		<div className="flex flex-col items-center text-white w-3/5 mx-auto">
 			<div className="mt-32 ">
 				<h1 className="text-white text-4xl font-bold mb-2">
 					League of Legends Items
