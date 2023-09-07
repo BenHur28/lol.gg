@@ -14,7 +14,7 @@ type ItemProps = {
 const Item = ({ item }: ItemProps) => {
 	return (
 		<>
-			<TooltipProvider>
+			<TooltipProvider delayDuration={0}>
 				<Tooltip>
 					<TooltipTrigger>
 						{" "}
@@ -28,8 +28,19 @@ const Item = ({ item }: ItemProps) => {
 							/>
 						</Link>
 					</TooltipTrigger>
-					<TooltipContent>
-						<p>Add to library</p>
+					<TooltipContent className="bg-nav border border-itemBorder w-96 h-60">
+						<div className="flex flex-col h-full w-full justify-between items-start">
+							<div className="text-[#3273fa]">{item.name}</div>
+							<p className="text-white text-xs">
+								{item.description.replace(
+									/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g,
+									""
+								)}
+							</p>
+							<div className="text-amber-500 text-xs ">
+								{item.gold.total}({item.gold.sell})
+							</div>
+						</div>
 					</TooltipContent>
 				</Tooltip>
 			</TooltipProvider>

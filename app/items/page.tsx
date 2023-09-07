@@ -32,9 +32,16 @@ export default async function ItemsPage() {
 		}
 	}
 	return (
-		<div className="flex flex-col items-center text-white text-center">
-			<div className="mt-32">
-				<h1>League of Legends Items</h1>
+		<div className="flex flex-col items-center text-white w-7/12 mx-auto">
+			<div className="mt-32 ">
+				<h1 className="text-white text-4xl font-bold mb-2">
+					League of Legends Items
+				</h1>
+				<p className="text-[#cddcfe]">
+					All in-game items for League of Legends, including mythics, legendary,
+					starting items, and consumables. Up-to-date stats, passives, actives,
+					and gold costs
+				</p>
 			</div>
 			<StarterItems items={items} />
 			<ConsumableItems items={items} />
