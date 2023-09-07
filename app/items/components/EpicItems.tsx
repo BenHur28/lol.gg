@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import Item from "./item";
 
 export default async function EpicItems({ items }: ItemProps) {
 	return (
@@ -17,17 +16,7 @@ export default async function EpicItems({ items }: ItemProps) {
 							item.name === "Harrowing Crescent" ||
 							item.name === "Targon's Buckler" ||
 							item.name === "Runesteel Spaulders") && (
-							<>
-								<Link key={item.name} href={`/items/${item.name}`}>
-									<Image
-										className="border border-itemBorder rounded-sm"
-										height={36}
-										width={36}
-										src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
-										alt=""
-									/>
-								</Link>
-							</>
+							<Item key={item.name} item={item} />
 						)
 				)}
 			</div>

@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
+import Item from "./item";
 
 export default async function LegendaryItems({ items }: ItemProps) {
 	return (
@@ -20,17 +19,7 @@ export default async function LegendaryItems({ items }: ItemProps) {
 							item.name === "Black Mist Scythe" ||
 							item.name === "Bulwark of the Mountain" ||
 							item.name === "Pauldrons of Whiterock") && (
-							<>
-								<Link key={item.name} href={`/items/${item.name}`}>
-									<Image
-										className="border border-itemBorder rounded-sm"
-										height={36}
-										width={36}
-										src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
-										alt=""
-									/>
-								</Link>
-							</>
+							<Item key={item.name} item={item} />
 						)
 				)}
 			</div>
