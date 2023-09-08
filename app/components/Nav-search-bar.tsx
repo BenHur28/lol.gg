@@ -31,9 +31,12 @@ const NavSearchBar = () => {
 		}
 	};
 	return (
-		<div className="flex items-center mx-auto text-black">
+		<div className="flex items-center mx-auto ">
 			<Popover open={open1} onOpenChange={setOpen1}>
-				<PopoverTrigger asChild className="h-[32px] rounded-sm mr-2">
+				<PopoverTrigger
+					asChild
+					className="h-[32px] rounded-sm mr-2 bg-[#0d0d28] border-0 text-white"
+				>
 					<Button
 						variant="outline"
 						role="combobox"
@@ -44,7 +47,7 @@ const NavSearchBar = () => {
 						<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 					</Button>
 				</PopoverTrigger>
-				<PopoverContent className="w-[150px] p-0">
+				<PopoverContent className="w-[150px] p-0 bg-[#0d0d28] text-white">
 					<Command>
 						<CommandGroup>
 							{filters.map((filter) => (
@@ -73,19 +76,22 @@ const NavSearchBar = () => {
 			</Popover>
 			<form
 				onSubmit={handleSubmit}
-				className="flex flex-row w-full bg-white rounded-sm py-1 px-1 justify-between"
+				className="flex flex-row w-full rounded-sm py-1 px-1 justify-between bg-[#0d0d28]"
 			>
 				<input
 					type="text"
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
-					className="mx-2 w-full outline-none"
+					className="mx-2 w-full outline-none bg-[#0d0d28] text-[#cddcfe]"
 					placeholder="Search Summoner or a Champion"
 				/>
 				<button>🔍</button>
 			</form>
 			<Popover open={open2} onOpenChange={setOpen2}>
-				<PopoverTrigger asChild className="h-[32px] ml-2 rounded-sm">
+				<PopoverTrigger
+					asChild
+					className="h-[32px] ml-2 rounded-sm bg-[#0d0d28] border-0 text-white"
+				>
 					<Button
 						variant="outline"
 						role="combobox"
@@ -96,7 +102,7 @@ const NavSearchBar = () => {
 						<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 					</Button>
 				</PopoverTrigger>
-				<PopoverContent className="w-[100px] p-0">
+				<PopoverContent className="w-[100px] p-0 bg-[#0d0d28] text-white">
 					<Command>
 						<CommandGroup>
 							{regions.map((region) => (

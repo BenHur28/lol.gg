@@ -54,18 +54,18 @@ export default function Searchbar() {
 				</div>
 				<div className="flex min-[320px]:flex-col min-[1440px]:flex-row gap-y-4 mt-4 md:w-1/3 justify-between items-center">
 					<Popover open={open1} onOpenChange={setOpen1}>
-						<PopoverTrigger asChild>
+						<PopoverTrigger asChild className="h-[32px] rounded-sm">
 							<Button
 								variant="outline"
 								role="combobox"
 								aria-expanded={open2}
-								className="w-[200px] justify-between"
+								className="w-[150px] justify-between"
 							>
 								{filterValue}
 								<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 							</Button>
 						</PopoverTrigger>
-						<PopoverContent className="w-[200px] p-0">
+						<PopoverContent className="w-[150px] p-0">
 							<Command>
 								<CommandGroup>
 									{filters.map((filter) => (
@@ -95,18 +95,18 @@ export default function Searchbar() {
 						</PopoverContent>
 					</Popover>
 					<Popover open={open2} onOpenChange={setOpen2}>
-						<PopoverTrigger asChild>
+						<PopoverTrigger asChild className="h-[32px] rounded-sm">
 							<Button
 								variant="outline"
 								role="combobox"
 								aria-expanded={open2}
-								className="w-[200px] justify-between"
+								className="w-[100px] justify-between"
 							>
 								{regionValue.toUpperCase()}
 								<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 							</Button>
 						</PopoverTrigger>
-						<PopoverContent className="w-[200px] p-0">
+						<PopoverContent className="w-[100px] p-0">
 							<Command>
 								<CommandGroup>
 									{regions.map((region) => (
