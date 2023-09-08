@@ -60,7 +60,7 @@ export default async function page({ params: { itemName } }: Props) {
 					{singleItem[0].from &&
 						singleItem[0].from.map((item) => (
 							<div key={item} className="flex flex-col">
-								<div className="flex pl-12 gap-x-2">
+								<div className="flex min-[500px]:pl-12 gap-x-2">
 									<Link href={`/items/${res.data[item].name}`}>
 										<Image
 											className="border border-itemBorder rounded-sm"
@@ -84,7 +84,7 @@ export default async function page({ params: { itemName } }: Props) {
 			{singleItem[0].into && (
 				<div className="flex flex-col bg-champBG p-4 mt-8 rounded-sm">
 					<div className="text-white text-xl mb-4">Builds Into</div>
-					<div className="grid grid-cols-3 gap-y-4">
+					<div className="grid grid-cols-3 max-[1200px]:grid-cols-2 max-[800px]:grid-cols-1 gap-y-4">
 						{singleItem[0].into.map((item) =>
 							res.data[item].maps[11] == true ? (
 								<div key={item} className="flex items-center ">
