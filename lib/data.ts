@@ -8,6 +8,26 @@ export const filters = [
 		label: "Champions",
 	},
 ];
+
+export const matchRegion = [
+	{
+		value: "americas",
+		label: ["NA1", "BR1", "LA1", "LA2"],
+	},
+	{
+		value: "asia",
+		label: ["KR", "JP1", "TW"],
+	},
+	{
+		value: "europe",
+		label: ["EUW1", "EUN1", "RU", "TR1"],
+	},
+	{
+		value: "sea",
+		label: ["OC1", "PH2", "SG2", "TH2", "VN2"],
+	},
+];
+
 export const regions = [
 	{
 		value: "NA1",

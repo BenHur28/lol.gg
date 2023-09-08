@@ -21,7 +21,7 @@ const Gameinfo = ({ game, puuid, player }: GameinfoProps) => {
 						alt=""
 					/>
 					<div className="absolute bottom-0 left-0 text-xs bg-black text-[10px] px-0.5 rounded-sm">
-						99
+						{playerData.champLevel}
 					</div>
 				</div>
 				<div className="flex flex-col gap-0.5">

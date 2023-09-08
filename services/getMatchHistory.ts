@@ -1,6 +1,7 @@
 export default async function getMatchHistory(
 	summonerName: string,
-	region: string
+	region: string,
+	matchRegion: string
 ) {
 	const summonerIdResponse = await fetch(
 		`https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${process.env.DATA_API_KEY}`
@@ -8,7 +9,7 @@ export default async function getMatchHistory(
 	const { puuid } = await summonerIdResponse.json();
 
 	const response = await fetch(
-		`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=1&count=2&api_key=${process.env.DATA_API_KEY}`
+		`https://${matchRegion}.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=2&api_key=${process.env.DATA_API_KEY}`
 	);
 
 	const data = await response.json();
@@ -41,7 +42,7 @@ export default async function getMatchHistory(
 		await Promise.all(
 			data.map(async (match: any) => {
 				const res = await fetch(
-					`https://americas.api.riotgames.com/lol/match/v5/matches/${match}?api_key=${process.env.DATA_API_KEY}`
+					`https://${matchRegion}.api.riotgames.com/lol/match/v5/matches/${match}?api_key=${process.env.DATA_API_KEY}`
 				);
 				const m = await res.json();
 				matches.push(m);
@@ -71,7 +72,7 @@ export default async function getMatchHistory(
 				await Promise.all(
 					game.participants.map(async (player) => {
 						const res = await fetch(
-							`https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${player}?api_key=${process.env.DATA_API_KEY}`
+							`https://${region}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${player}?api_key=${process.env.DATA_API_KEY}`
 						);
 						const p = await res.json();
 						if (game.team1.team1playerlist.length < 5) {

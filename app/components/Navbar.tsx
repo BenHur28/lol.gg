@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils";
 
 export default function Navbar() {
 	const pathname = usePathname();
-	console.log(pathname);
 	return (
 		<nav className="fixed z-10 w-full bg-nav h-20 border-b border-b-border">
 			<div

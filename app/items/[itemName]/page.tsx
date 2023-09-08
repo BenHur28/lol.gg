@@ -20,7 +20,6 @@ export default async function page({ params: { itemName } }: Props) {
 	const itemData = getItemsData();
 	const res = await itemData;
 	const singleItem: Item[] = [];
-	console.log(res.data[224403]);
 	for (let item in res.data) {
 		if (res.data[item].name == itemName.replace(/%20/g, " ")) {
 			singleItem.push(res.data[item]);

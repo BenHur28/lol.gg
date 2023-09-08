@@ -1,4 +1,4 @@
-import { ranks } from "@/lib/data";
+import { ranks, matchRegion } from "@/lib/data";
 import getMatchHistory from "@/services/getMatchHistory";
 import getSummoner from "@/services/getSummoner";
 import Summoner from "./components/summoner";
@@ -24,9 +24,10 @@ export async function generateMetadata({ params: { summonerName } }: Props) {
 export default async function page({
 	params: { summonerName, region },
 }: Props) {
-	const location = "";
+	const location = matchRegion.filter((obj) => obj.label.includes(region))[0]
+		.value;
 	const summoner = getSummoner(summonerName, region);
-	const matchHistory = getMatchHistory(summonerName, region);
+	const matchHistory = getMatchHistory(summonerName, region, location);
 	const data = await summoner;
 	const matches = await matchHistory;
 	const ranked_data = data[0].filter(

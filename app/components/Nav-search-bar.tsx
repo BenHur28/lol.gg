@@ -83,7 +83,7 @@ const NavSearchBar = () => {
 					value={search}
 					onChange={(e) => setSearch(e.target.value)}
 					className="mx-2 w-full outline-none bg-[#0d0d28] text-[#cddcfe]"
-					placeholder="Search Summoner or a Champion"
+					placeholder="Search..."
 				/>
 				<button>🔍</button>
 			</form>
