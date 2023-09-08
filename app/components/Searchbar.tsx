@@ -40,7 +40,7 @@ export default function Searchbar() {
 				<div className="flex items-center md:w-1/3">
 					<form
 						onSubmit={handleSubmit}
-						className="flex flex-row w-full bg-white rounded-md py-4 px-2 justify-between"
+						className="flex flex-row w-full bg-white rounded-sm py-2 px-2 justify-between"
 					>
 						<input
 							type="text"
