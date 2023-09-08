@@ -10,7 +10,7 @@ type Props = {
 
 export async function generateMetadata({ params: { itemName } }: Props) {
 	return {
-		title: `${itemName} | Information`,
+		title: `${itemName.replace(/%20/g, " ")} | Information`,
 		description: `Item page for ${itemName}`,
 	};
 }
@@ -25,18 +25,35 @@ export default async function page({ params: { itemName } }: Props) {
 		}
 	}
 	return (
-		<div className="pt-32 w-2/5 mx-auto">
+		<div className="flex flex-col pt-32 w-2/5 mx-auto">
 			<div className="flex items-center">
 				<Image
 					className="border border-itemBorder rounded-sm"
-					height={36}
-					width={36}
+					height={72}
+					width={72}
 					src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${singleItem[0].image.full}`}
 					alt=""
 				/>
-				<div className="text-2xl text-white">
+				<div className="text-4xl text-white font-semibold ml-4">
 					{itemName.replace(/%20/g, " ")}
 				</div>
+			</div>
+			<div className="flex flex-col bg-champBG">
+				<div>Recipe</div>
+				{singleItem[0].from ? (
+					""
+				) : (
+					<div>
+						<Image
+							height={40}
+							width={40}
+							src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${singleItem[0].image.full}`}
+							alt=""
+						></Image>
+					</div>
+				)}
+				{singleItem[0].from &&
+					singleItem[0].from.map((item) => <div key={item}>{item}</div>)}
 			</div>
 		</div>
 	);
