@@ -17,7 +17,7 @@ export default async function ChampionsPage() {
 		champs.push(res.data[champ]);
 	}
 	return (
-		<div className="flex flex-col items-center">
+		<div data-testid="championspage-div" className="flex flex-col items-center">
 			<div>
 				<div className="mt-32 mb-10">
 					<h1 className="text-white text-4xl font-bold mb-2">Champions List</h1>
