@@ -4,6 +4,14 @@ import Home from "../app/page";
 import ChampionsPage from "@/app/champions/page";
 import ChampionPage from "@/app/champions/[championName]/page";
 
+jest.mock("next/navigation", () => ({
+	useRouter() {
+		return {
+			prefetch: () => null,
+		};
+	},
+}));
+
 describe("Home", () => {
 	it("renders Home", () => {
 		render(<Home />);
