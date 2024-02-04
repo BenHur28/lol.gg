@@ -35,10 +35,10 @@ export default async function ChampionPage({
 				/>
 				<div className="ml-3 flex flex-col">
 					<h1 className="text-white text-4xl">{res.data[championName].id}</h1>
-					<h2 className="flex-wrap text-white w-full">
+					<h2 className="flex-wrap text-white w-full break-normal">
 						{res.data[championName].title}
 					</h2>
-					<span className="text-white">
+					<span className="text-white break-normal">
 						{championName} is a
 						{res.data[championName].tags.map((tag: string) => (
 							<span key={championName}>{" " + tag + " "}</span>
@@ -88,10 +88,10 @@ export default async function ChampionPage({
 						width={60}
 						alt=""
 					/>
-					<div className="flex flex-col ml-4 text-white text-xl w-full">
+					<div className="flex flex-col ml-4 text-white text-xl w-full break-normal">
 						<h2>{res.data[championName].passive.name}</h2>
 					</div>
-					<div className="whitespace-nowrap text-white text-xl max-[691px]:hidden">
+					<div className="whitespace-nowrap text-white text-xl max-[691px]:hidden break-normal">
 						<h2>{`${championName}'s Passive`}</h2>
 					</div>
 				</div>
