@@ -115,10 +115,10 @@ export default async function ChampionPage({
 							width={60}
 							alt=""
 						/>
-						<div className="flex flex-col ml-4 text-white text-xl w-full">
+						<div className="flex flex-col ml-4 text-white text-xl w-full break-normal">
 							<h2>{spell.name}</h2>
 						</div>
-						<div className="whitespace-nowrap text-white text-xl max-[691px]:hidden">
+						<div className="whitespace-nowrap text-white text-xl max-[691px]:hidden break-normal">
 							<h2>{`${championName}'s ${icons[index]}`}</h2>
 						</div>
 					</div>
