@@ -23,7 +23,7 @@ export default async function ChampionPage({
 	return (
 		<div
 			data-testid="single-champ-page"
-			className="flex flex-col p-20 mx-auto max-[400px]:w-full max-[1024px]:w-5/6 lg:w-3/5 pt-32 mb-20"
+			className="flex flex-col p-10 mx-auto min-[280px]:w-full max-[1024px]:w-5/6 lg:w-3/5 pt-32 mb-20"
 		>
 			<div className="flex flex-row w-full items-top">
 				<Image
