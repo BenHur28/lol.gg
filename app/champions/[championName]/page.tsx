@@ -35,10 +35,10 @@ export default async function ChampionPage({
 				/>
 				<div className="ml-3 flex flex-col">
 					<h1 className="text-white text-4xl">{res.data[championName].id}</h1>
-					<h2 className="flex-wrap text-white w-full break-normal">
+					<h2 className="flex-wrap text-white w-full break-words">
 						{res.data[championName].title}
 					</h2>
-					<span className="text-white break-normal">
+					<span className="text-white break-words">
 						{championName} is a
 						{res.data[championName].tags.map((tag: string) => (
 							<span key={championName}>{" " + tag + " "}</span>
@@ -88,10 +88,10 @@ export default async function ChampionPage({
 						width={60}
 						alt=""
 					/>
-					<div className="flex flex-col ml-4 text-white text-xl w-full break-normal">
+					<div className="flex flex-col ml-4 text-white text-xl w-full break-words">
 						<h2>{res.data[championName].passive.name}</h2>
 					</div>
-					<div className="whitespace-nowrap text-white text-xl max-[691px]:hidden break-normal">
+					<div className="whitespace-nowrap text-white text-xl max-[691px]:hidden break-words">
 						<h2>{`${championName}'s Passive`}</h2>
 					</div>
 				</div>
@@ -115,14 +115,14 @@ export default async function ChampionPage({
 							width={60}
 							alt=""
 						/>
-						<div className="flex flex-col ml-4 text-white text-xl w-full break-normal">
+						<div className="flex flex-col ml-4 text-white text-xl w-full break-words">
 							<h2>{spell.name}</h2>
 						</div>
-						<div className="whitespace-nowrap text-white text-xl max-[691px]:hidden break-normal">
+						<div className="whitespace-nowrap text-white text-xl max-[691px]:hidden break-words">
 							<h2>{`${championName}'s ${icons[index]}`}</h2>
 						</div>
 					</div>
-					<div className="mt-10 text-white">
+					<div className="mt-10 text-white break-words">
 						<h2>
 							{spell.description.replace(
 								/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g,
