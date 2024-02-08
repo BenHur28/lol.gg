@@ -35,7 +35,7 @@ export default async function page({ params: { itemName } }: Props) {
 					src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${singleItem[0].image.full}`}
 					alt=""
 				/>
-				<div className="text-4xl text-white font-semibold ml-4">
+				<div className="text-4xl text-white font-semibold ml-4 break-words">
 					{itemName.replace(/%20/g, " ")}
 				</div>
 			</div>
@@ -96,7 +96,7 @@ export default async function page({ params: { itemName } }: Props) {
 											alt=""
 										/>
 									</Link>
-									<div className="text-white text-sm">
+									<div className="text-white text-sm break-words">
 										{res.data[item].name}
 									</div>
 								</div>
