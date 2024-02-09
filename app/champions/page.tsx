@@ -40,7 +40,9 @@ export default async function ChampionsPage() {
 										src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/champion/${champ.image.full}`}
 										alt=""
 									></Image>
-									<span className="text-white text-sm mt-2">{champ.name}</span>
+									<span className="text-white text-sm mt-2 break-words">
+										{champ.name}
+									</span>
 								</Link>
 							</li>
 						))}
