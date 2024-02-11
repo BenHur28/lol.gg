@@ -50,7 +50,9 @@ export default async function page({ params: { itemName } }: Props) {
 						alt=""
 					/>
 					<div className="flex flex-col">
-						<p className="text-sm text-white">{singleItem[0].name}</p>
+						<p className="text-sm text-white break-words">
+							{singleItem[0].name}
+						</p>
 						<p className="text-sm text-amber-500">{singleItem[0].gold.total}</p>
 					</div>
 				</div>
@@ -70,7 +72,9 @@ export default async function page({ params: { itemName } }: Props) {
 										/>
 									</Link>
 									<div className="flex flex-col">
-										<p className="text-sm text-white">{res.data[item].name}</p>
+										<p className="text-sm text-white break-words">
+											{res.data[item].name}
+										</p>
 										<p className="text-sm text-amber-500">
 											{res.data[item].gold.total}
 										</p>
