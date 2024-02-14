@@ -46,7 +46,7 @@ export default async function page({ params: { itemName } }: Props) {
 						className="border border-itemBorder rounded-sm"
 						height={40}
 						width={40}
-						src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${singleItem[0].image.full}`}
+						src={`http://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/${singleItem[0].image.full}`}
 						alt=""
 					/>
 					<div className="flex flex-col">
@@ -67,7 +67,7 @@ export default async function page({ params: { itemName } }: Props) {
 											className="border border-itemBorder rounded-sm"
 											height={40}
 											width={40}
-											src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${res.data[item].image.full}`}
+											src={`http://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/${res.data[item].image.full}`}
 											alt=""
 										/>
 									</Link>
