@@ -15,7 +15,7 @@ export default async function Trinkets({ items }: ItemProps) {
 										className="border border-itemBorder rounded-sm"
 										height={36}
 										width={36}
-										src={`http://ddragon.leagueoflegends.com/cdn/13.14.1/img/item/${item.image.full}`}
+										src={`http://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/${item.image.full}`}
 										alt=""
 									/>
 								</Link>
