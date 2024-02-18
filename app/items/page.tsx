@@ -37,7 +37,7 @@ export default async function ItemsPage() {
 				<h1 className="text-white text-4xl font-bold mb-2">
 					League of Legends Items
 				</h1>
-				<p className="text-[#cddcfe]">
+				<p className="text-[#cddcfe] break-words">
 					All in-game items for League of Legends, including mythics, legendary,
 					starting items, and consumables. Up-to-date stats, passives, actives,
 					and gold costs
