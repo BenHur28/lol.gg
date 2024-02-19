@@ -38,9 +38,8 @@ export default async function ItemsPage() {
 					League of Legends Items
 				</h1>
 				<p className="text-[#cddcfe] break-words">
-					All in-game items for League of Legends, including mythics, legendary,
-					starting items, and consumables. Up-to-date stats, passives, actives,
-					and gold costs
+					All in-game items for League of Legends starting items, and
+					consumables. Up-to-date stats, passives, actives, and gold costs
 				</p>
 			</div>
 			<StarterItems items={items} />
