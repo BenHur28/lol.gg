@@ -31,7 +31,7 @@ const Item = ({ item }: ItemProps) => {
 					<TooltipContent className="bg-nav border border-itemBorder w-96 h-60">
 						<div className="flex flex-col h-full w-full justify-between items-start">
 							<div className="text-[#3273fa]">{item.name}</div>
-							<p className="text-white text-xs">
+							<p className="text-white text-xs break-words">
 								{item.description.replace(
 									/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g,
 									""
