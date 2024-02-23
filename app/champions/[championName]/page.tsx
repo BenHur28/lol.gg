@@ -30,7 +30,7 @@ export default async function ChampionPage({
 					className="border border-champBorder"
 					height={100}
 					width={100}
-					src={`https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${res.data[championName].image.full}`}
+					src={`https://ddragon.leagueoflegends.com/cdn/14.4.1/img/champion/${res.data[championName].image.full}`}
 					alt=""
 				/>
 				<div className="ml-3 flex flex-col">
@@ -53,7 +53,7 @@ export default async function ChampionPage({
 					<div className="flex flex-col items-center mt-4">
 						<Image
 							className="rounded-sm border border-itemBorder"
-							src={`http://ddragon.leagueoflegends.com/cdn/14.3.1/img/passive/${res.data[championName].passive.image.full}`}
+							src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/passive/${res.data[championName].passive.image.full}`}
 							height={48}
 							width={48}
 							alt=""
@@ -67,7 +67,7 @@ export default async function ChampionPage({
 						<div key={spell.id} className="flex flex-col items-center mt-4">
 							<Image
 								className="rounded-sm border border-itemBorder"
-								src={`http://ddragon.leagueoflegends.com/cdn/14.3.1/img/spell/${spell.image.full}`}
+								src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/${spell.image.full}`}
 								height={48}
 								width={48}
 								alt=""
@@ -83,7 +83,7 @@ export default async function ChampionPage({
 				<div className="flex flex-row">
 					<Image
 						className="rounded-sm border border-itemBorder"
-						src={`http://ddragon.leagueoflegends.com/cdn/14.3.1/img/passive/${res.data[championName].passive.image.full}`}
+						src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/passive/${res.data[championName].passive.image.full}`}
 						height={60}
 						width={60}
 						alt=""
@@ -110,7 +110,7 @@ export default async function ChampionPage({
 					<div className="flex flex-row">
 						<Image
 							className="rounded-sm border border-itemBorder"
-							src={`http://ddragon.leagueoflegends.com/cdn/14.3.1/img/spell/${spell.image.full}`}
+							src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/spell/${spell.image.full}`}
 							height={60}
 							width={60}
 							alt=""

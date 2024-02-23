@@ -37,7 +37,7 @@ export default async function ChampionsPage() {
 										className="border border-champBorder"
 										height={96}
 										width={96}
-										src={`http://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${champ.image.full}`}
+										src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/champion/${champ.image.full}`}
 										alt=""
 									></Image>
 									<span className="text-white text-sm mt-2 break-words">
