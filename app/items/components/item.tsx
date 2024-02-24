@@ -23,7 +23,7 @@ const Item = ({ item }: ItemProps) => {
 								className="border border-itemBorder rounded-sm"
 								height={36}
 								width={36}
-								src={`http://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/${item.image.full}`}
+								src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/${item.image.full}`}
 								alt=""
 							/>
 						</Link>

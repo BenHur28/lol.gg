@@ -32,7 +32,7 @@ export default async function page({ params: { itemName } }: Props) {
 					className="border border-itemBorder rounded-sm"
 					height={72}
 					width={72}
-					src={`http://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/${singleItem[0].image.full}`}
+					src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/${singleItem[0].image.full}`}
 					alt=""
 				/>
 				<div className="text-4xl text-white font-semibold ml-4 break-words">
@@ -46,7 +46,7 @@ export default async function page({ params: { itemName } }: Props) {
 						className="border border-itemBorder rounded-sm"
 						height={40}
 						width={40}
-						src={`http://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/${singleItem[0].image.full}`}
+						src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/${singleItem[0].image.full}`}
 						alt=""
 					/>
 					<div className="flex flex-col">
@@ -67,7 +67,7 @@ export default async function page({ params: { itemName } }: Props) {
 											className="border border-itemBorder rounded-sm"
 											height={40}
 											width={40}
-											src={`http://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/${res.data[item].image.full}`}
+											src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/${res.data[item].image.full}`}
 											alt=""
 										/>
 									</Link>
@@ -96,7 +96,7 @@ export default async function page({ params: { itemName } }: Props) {
 											className="border border-itemBorder rounded-sm mr-2"
 											height={30}
 											width={30}
-											src={`http://ddragon.leagueoflegends.com/cdn/14.13.1/img/item/${res.data[item].image.full}`}
+											src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/item/${res.data[item].image.full}`}
 											alt=""
 										/>
 									</Link>
