@@ -22,7 +22,7 @@ export default async function ChampionsPage() {
 				<div className="mt-32 mb-10">
 					<h1 className="text-white text-4xl font-bold mb-2">Champions List</h1>
 					<h2 className="text-champH2 text-xl font-bold">
-						Discover best builds for every champion
+						Information About Every Champion
 					</h2>
 				</div>
 				<div className="flex justify-center p-10 border border-champBorder bg-champBG">
