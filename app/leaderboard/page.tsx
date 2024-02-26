@@ -1,3 +1,5 @@
 export default function LeaderboardPage() {
-	return <div className="text-white text-center">Leaderboard Page</div>;
+	return (
+		<div className="text-white text-center break-words">Leaderboard Page</div>
+	);
 }
