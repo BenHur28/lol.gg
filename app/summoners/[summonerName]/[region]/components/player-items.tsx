@@ -26,7 +26,7 @@ const Playeritems = ({ player }: PlayeritemsProps) => {
 							key={item}
 							height={22}
 							width={22}
-							src={`https://ddragon.leagueoflegends.com/cdn/13.17.1/img/item/${item}.png`}
+							src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${item}.png`}
 							alt=""
 						/>
 					) : (
