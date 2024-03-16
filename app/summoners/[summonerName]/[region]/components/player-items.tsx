@@ -41,7 +41,7 @@ const Playeritems = ({ player }: PlayeritemsProps) => {
 				className="ml-0.5"
 				height={22}
 				width={22}
-				src={`https://ddragon.leagueoflegends.com/cdn/13.17.1/img/item/${playerData.item6}.png`}
+				src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${playerData.item6}.png`}
 				alt=""
 			/>
 		</div>
