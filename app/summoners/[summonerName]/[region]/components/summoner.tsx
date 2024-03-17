@@ -22,7 +22,7 @@ const Summoner = ({ name, image }: SummonerProps) => {
 					className="border border-itemBorder"
 					height={100}
 					width={100}
-					src={`http://ddragon.leagueoflegends.com/cdn/14.4.1/img/profileicon/${image}.png`}
+					src={`http://ddragon.leagueoflegends.com/cdn/14.5.1/img/profileicon/${image}.png`}
 					alt=""
 				/>
 				<div className="flex flex-col ml-4 justify-between">
