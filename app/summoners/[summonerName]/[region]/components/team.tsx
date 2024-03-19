@@ -16,7 +16,7 @@ const Team = ({ playerlist, championlist, name }: TeamProps) => {
 						<Image
 							height={16}
 							width={16}
-							src={`https://ddragon.leagueoflegends.com/cdn/14.4.1/img/champion/${champ}.png`}
+							src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/${champ}.png`}
 							alt=""
 						/>
 					</div>
