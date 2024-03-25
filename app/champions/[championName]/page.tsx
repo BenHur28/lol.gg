@@ -110,7 +110,7 @@ export default async function ChampionPage({
 					<div className="flex flex-row">
 						<Image
 							className="rounded-sm border border-itemBorder"
-							src={`http://ddragon.leagueoflegends.com/cdn/14.5.1/img/spell/${spell.image.full}`}
+							src={`http://ddragon.leagueoflegends.com/cdn/14.6.1/img/spell/${spell.image.full}`}
 							height={60}
 							width={60}
 							alt=""
