@@ -67,7 +67,7 @@ export default async function page({ params: { itemName } }: Props) {
 											className="border border-itemBorder rounded-sm"
 											height={40}
 											width={40}
-											src={`http://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/${res.data[item].image.full}`}
+											src={`http://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/${res.data[item].image.full}`}
 											alt=""
 										/>
 									</Link>
