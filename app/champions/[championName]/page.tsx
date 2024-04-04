@@ -30,7 +30,7 @@ export default async function ChampionPage({
 					className="border border-champBorder"
 					height={100}
 					width={100}
-					src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/${res.data[championName].image.full}`}
+					src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/${res.data[championName].image.full}`}
 					alt=""
 				/>
 				<div className="ml-3 flex flex-col">
