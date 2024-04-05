@@ -17,7 +17,7 @@ const Gameinfo = ({ game, puuid, player }: GameinfoProps) => {
 					<Image
 						height={42}
 						width={42}
-						src={`https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/${playerData.championName}.png`}
+						src={`https://ddragon.leagueoflegends.com/cdn/14.6.1/img/champion/${playerData.championName}.png`}
 						alt=""
 					/>
 					<div className="absolute bottom-0 left-0 text-xs bg-black text-[10px] px-0.5 rounded-sm">
